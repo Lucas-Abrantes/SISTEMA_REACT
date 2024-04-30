@@ -1,0 +1,95 @@
+.page{
+    background-color: #dbe6ee;
+    height: calc(100vh - 5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+
+form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.titulo_login{
+    font-size: 30px;
+    font-weight: 800;
+    color: #12455f;
+    margin-bottom: 1rem;
+}
+  
+
+.text_label{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 18px 0px;
+}
+  
+  
+.text_label > input{
+    width: 75%;
+    outline: none;
+    border-radius: 10px;
+    font-size: 12pt;
+    padding: 15px;
+    border: none;
+    color: rgb(35, 35, 36);
+}
+  
+  
+.text_label > input::placeholder{
+  color: #304d7bde;
+}
+  
+  
+.btn{
+    width: 20%;
+    padding: 16px 0px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    margin-top: 2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color:  rgb(255, 255, 255);
+    background: rgb(201, 101, 101);
+    transition: 0.1s;
+    box-shadow: 0px 10px 40px -12px #051f4852;
+}
+  
+  
+.btn:hover{
+  background-color: rgb(223, 75, 75);
+}
+
+
+.conta_user{
+  margin-top: 2rem;
+  color: red;
+  margin-bottom: 0.5rem;
+}
+
+  
+.conta_user:hover{
+  color: red;
+  border-bottom: 1px solid red;
+}
