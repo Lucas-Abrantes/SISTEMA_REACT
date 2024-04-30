@@ -1,0 +1,29 @@
+.menuNav{
+    background-color: #FFF2E7;
+    height: 5rem;
+    padding: 0 4rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+}
+
+.list{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+
+.item > a{
+    font-size: 17px;
+    font-weight: 600;
+    color: #12455f;
+}
+
+a:hover{
+    color: red;
+}
