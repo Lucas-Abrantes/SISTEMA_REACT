@@ -3,7 +3,7 @@ import styles from '../../ui/styles/Login.module.css'
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
 
-function Login(){
+function CriarConta(){
     return (
         <>
             <NavBar/>
@@ -30,4 +30,4 @@ function Login(){
     );
 }
 
-export default Login;
+export default CriarConta;

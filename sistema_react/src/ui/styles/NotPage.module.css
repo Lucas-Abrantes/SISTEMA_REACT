@@ -1,0 +1,26 @@
+.pageError{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.notPage{
+    background-color: rgb(200, 215, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.notPage > h1{
+    font-weight: 800;
+    color: rgb(200, 54, 69);
+}
+.notPage > p{
+    font-size: 19px;
+    color: rgb(68, 58, 58);
+    font-weight: 700;
+}
