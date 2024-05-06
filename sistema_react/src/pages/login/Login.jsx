@@ -14,15 +14,18 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await login(email, password); // Obter a resposta da API
+            const response = await login(email, password); 
             
-            console.log("API Response:", response); // Vamos logar a resposta para ver a estrutura
+            console.log("API Response:", response); 
             
-            if (response.success && response.data.role) { // Verifique se a role existe
+            if (response.success && response.data.role) { 
+                localStorage.setItem('user', JSON.stringify(response.data));
+                localStorage.setItem('loginSuccess', 'true'); // Flag para controle de boas-vindas
+
                 if (response.data.role === 'admin') {
-                    navigate('/tela_admin'); // Rota para admin
+                    navigate('/tela_admin'); 
                 } else if (response.data.role === 'cliente') {
-                    navigate('/tela_usuario'); // Rota para cliente
+                    navigate('/tela_usuario'); 
                 } else {
                     throw new Error("User role is not defined or unauthorized");
                 }
@@ -33,7 +36,6 @@ function Login() {
             console.error("Erro de login:", error.message);
         }
     };
-
 
     const handleCreateAccountClick = () => {
         navigate('/criar_conta');

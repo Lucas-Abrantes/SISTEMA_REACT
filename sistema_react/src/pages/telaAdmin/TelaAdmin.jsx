@@ -1,16 +1,13 @@
 import React from 'react';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
+import PainelAdmin from '../../ui/components/painel_admin/PainelAdmin';
 
 function TelaAdmin(){
     return (
         <>
             <NavBar/>
-                <div>
-                    <div>
-                        <h3>admin</h3>
-                    </div>
-                </div>
+                <PainelAdmin/>
             <Footer/>
         </>
     );

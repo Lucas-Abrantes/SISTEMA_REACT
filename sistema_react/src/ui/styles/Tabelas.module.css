@@ -1,0 +1,143 @@
+.tabela{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+  
+th, td {
+  border: 1px solid #9d9d9d;
+  padding: 10px;
+  text-align: center;
+}
+
+
+th {
+  background-color: #85b8d6;
+  color: #12455f;
+  font-weight: bold;
+}
+
+
+.linhaInativa{
+  background-color: #ef9393;
+}
+
+
+.botoes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:17px;
+}
+
+
+.acao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+    background-color: rgb(31, 60, 115);
+    border-radius: 10px;
+  }
+
+
+  .acao > a{
+    font-size: 16px;
+    color: rgb(237, 230, 230);
+    margin: 4px;
+    font-weight: 600;
+  }
+
+
+
+  .botao{
+    width: 40%;
+    padding: 16px 0px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    margin-top: 2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    color:  rgb(179, 183, 193);
+    background: green;
+    transition: 0.2s;
+    box-shadow: 0px 10px 40px -12px #051f4852;
+  }
+  
+
+
+  .bnt_table{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    background: rgb(34, 117, 210, 255);
+    transition: 0.2s;
+    letter-spacing: 1px;
+    color: rgb(179, 183, 193);
+    box-shadow: 0px 10px 40px -12px #051f4852;
+  }
+
+
+  .bnt_table:hover{
+    background-color: rgb(15, 84, 162);
+    color: rgb(239, 241, 245);
+  }
+
+
+
+.btnEditar{
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 9px;
+    background: rgb(57, 91, 195);
+    transition: 0.2s;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+    color: rgb(179, 183, 193);
+    box-shadow: 0px 10px 40px -12px #051f4852;
+  }
+
+
+  .btnExcluir{
+    cursor: pointer;
+    width: 100%;
+    line-height: 1.5rem;
+
+    padding: 0.5rem;
+    border: none;
+    border-radius: 9px;
+    background: rgb(230, 62, 62);
+    transition: 0.2s;
+    letter-spacing: 1px;
+    color: rgb(179, 183, 193);
+    box-shadow: 0px 10px 40px -12px #051f4852;
+  }
+
+  .btnExcluir:hover{
+    background: rgb(243, 101, 101);
+    color: rgb(239, 241, 245);
+  }
+
+  .btnEditar:hover{
+    background: rgb(66, 89, 158);
+    color: rgb(239, 241, 245);
+
+  }
