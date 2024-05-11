@@ -32,7 +32,7 @@ function TabelaEventos() {
         { key: 'id', title: 'ID' },
         { key: 'title', title: 'Title' },
         { key: 'description', title: 'Description' },
-        { key: 'data', title: 'Data' },
+        { key: 'data', title: 'Data' , formatter: (value) => value.slice(0, 10)},
         { key: 'location', title: 'Location' },
         { key: 'organizador', title: 'Organizador' },
         { key: 'capacity', title: 'Capacity' },
@@ -48,6 +48,9 @@ function TabelaEventos() {
             columns={eventColumns}
             onDelete={handleDeleteEvent}
             onEdit={(id) => alert(`Editar evento ${id}`)} 
+            routeCurrent='events'
+            editRoute='editar_evento'
+            createRoute='criar_evento'
         />
     );
 }

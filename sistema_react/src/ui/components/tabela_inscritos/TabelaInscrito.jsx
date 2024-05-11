@@ -37,7 +37,7 @@ function TabelaInscritos() {
         { key: 'id', title: 'ID' },
         { key: 'user_id', title: 'Usuário' },
         { key: 'event_id', title: 'Event' }, 
-        { key: 'subscribe_date', title: 'Data' },   
+        { key: 'subscribe_date', title: 'Data', formatter: (value) => value.slice(0, 10) },   
         { key: 'status', title: 'Status', formatter: formatStatus }
     ];
 
@@ -47,6 +47,9 @@ function TabelaInscritos() {
             columns={subscriberColumns}
             onDelete={handleDeleteSubscriber}
             onEdit={(id) => alert(`Editar ${id}`)} 
+            routeCurrent='subscribers'
+            editRoute='editar_inscritos'
+            createRoute='criar_inscrito'
         />
     );
 }

@@ -1,78 +1,67 @@
-.rodape{
+.rodape {
     display: flex;
     flex-direction: row;
     padding: 2rem;
     justify-content: space-around;
-   
 }
 
-
-
-.itens_empresa{
+.itens_empresa {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.itens_empresa > li{
+.itens_empresa>li {
     margin-top: 1rem;
 }
 
-a{
+a {
     color: #678898;
 }
 
-
-.itens_empresa > li> a:hover{
+.itens_empresa>li>a:hover {
     color: red;
 }
 
-
-
-.contatos{
+.contatos {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.contatos > li{
+.contatos>li {
     margin-top: 1rem;
 }
 
-.aplicativos{
+.aplicativos {
     top: 0;
 }
 
-
-
-.adicionais{
+.adicionais {
     border-top: 1px solid #ccc;
 }
 
-.info{
+.info {
     margin: 0 2rem;
     padding: 2rem;
 }
 
-
-
-.footer_group{
+.footer_group {
 
     display: flex;
-    justify-content: space-around   ;
+    justify-content: space-around;
     align-items: center;
 }
 
-
-.footer_midias{
+.footer_midias {
     display: flex;
     gap: 2rem;
     justify-content: center;
     align-items: center;
-  
+
 }
 
-.redes > img{
+.redes>img {
     width: 20px;
     height: 20px;
 }

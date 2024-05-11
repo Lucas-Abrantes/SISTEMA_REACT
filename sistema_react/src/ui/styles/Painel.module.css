@@ -1,107 +1,60 @@
 .container {
-    display: flex; /* Define o flexbox */
-    width: 100vw;
-    height: calc(100vh - 5rem); /* Torna a altura mínima da tela completa */
-  }
-  
-  .container_user {
-    width: 20vw; /* Largura fixa para o menu lateral */
-    padding: 2rem;
-    display: flex;
-    justify-content: start;
-    border: 1px solid red;
-    /* Altura total da tela */
-    left: 0; /* Alinha a barra lateral à esquerda */
-    background-color: rgba(179, 179, 255, 0.737);
-  }
-  
-.menus{
-    display: flex;
-    gap: 3rem;
-    margin-left: 1rem;
-    flex-direction: column;
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 5rem);
 }
 
-
-.menus_user{
-    display: flex;
-    gap: 3rem;
-    flex-direction: column;
+.container_user {
+  width: 20vw;
+  padding: 2rem;
+  display: flex;
+  justify-content: start;
+  left: 0;
+  background-color: rgba(179, 179, 255, 0.737);
 }
 
+.menus {
+  display: flex;
+  gap: 3rem;
+  margin-left: 1rem;
+  flex-direction: column;
+}
 
-.menuButton{
+.menus_user {
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+}
+
+.menuButton {
   border: 1px solid transparent;
   font-size: 17px;
   background-color: transparent;
   cursor: pointer;
   color: #12455f;
- 
 }
 
-
-.menuButton:hover{
+.menuButton:hover {
   border-bottom: 1px solid red;
   color: #507b91;
 }
 
-
-.btn1{
-    border: 1px solid transparent;
-    background-color: transparent;
-    width: 40%;
-    padding: 5px;
-    cursor: pointer;
+.btn1 {
+  border: 1px solid transparent;
+  background-color: transparent;
+  width: 40%;
+  padding: 5px;
+  cursor: pointer;
 }
 
-
-.btn1:hover{
-    transition: 0.2s;
-    border-bottom: 1px solid red;
+.btn1:hover {
+  transition: 0.2s;
+  border-bottom: 1px solid red;
 }
-
 
 .content {
-    border: 1px solid red;
-    background-color: rgba(179, 179, 255, 0.737);
-    flex-grow: 1; /* Permite que o conteúdo cresça e ocupe o espaço restante */
-    padding: 20px; /* Espaçamento interno */
-}
-  
-
-
-
-.content{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.pesquisa{
-  height: 8rem;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  background-color: rgb(179, 179, 209);
-}
-  
-
-.pesquisa_user{
-  width: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  
-}
-
-.pesquisa_user > input{
-  width: 60%;
-  border: none;
-  outline: none;
-  border-radius: 2rem;
-  line-height: 3rem;
-  padding-left: 12px;
-  font-size: 17px;
-  color:  #12455f;
+  border: 1px solid red;
+  background-color: rgba(179, 179, 255, 0.737);
+  flex-grow: 1;
+  padding: 20px;
 }

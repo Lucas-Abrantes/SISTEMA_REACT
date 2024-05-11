@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 function NavBar(){
 
     const navigate = useNavigate();
-
-
     const handleCreateAccountClick = () => {
         navigate('/criar_conta');
     };

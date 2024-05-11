@@ -16,7 +16,6 @@ function CriarConta() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            // Supondo que a função register envia os dados ao servidor e retorna uma resposta
             const response = await register({ name, email, password });
             console.log("API Response:", response);
 
@@ -30,7 +29,7 @@ function CriarConta() {
                     draggable: true,
                     progress: undefined,
                 });
-                setTimeout(() => navigate('/login'), 500); // Redireciona após o toast
+                setTimeout(() => navigate('/login'), 500); 
             } else {
                 throw new Error("Registration failed");
             }
@@ -46,7 +45,7 @@ function CriarConta() {
             <div className={styles.page}>
                 <div className={styles.login}>
                     <form onSubmit={handleRegister}> 
-                        <h3 className={styles.titulo_login}>Crie a sua conta</h3>
+                        <h3 className={styles.titulo_login}>Criar conta</h3>
                         <div className={styles.text_label}>
                             <input type='text' id="nome" name='nome' placeholder='Digite o seu nome e sobrenome' required 
                                 onChange={e => setName(e.target.value)}></input>

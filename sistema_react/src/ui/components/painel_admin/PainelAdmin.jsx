@@ -46,14 +46,8 @@ function PainelAdmin() {
                     </div>
                 </div>
             </div>
-            <div className={styles.content}>
-                <div className={styles.pesquisa}>
-                    <div className={styles.pesquisa_user}>
-                        <input type='text' placeholder='search'></input>
-                    </div>
-                </div>
-                {TableComponent && <TableComponent />}
-            </div>
+            
+            {TableComponent && <TableComponent />}
         </div>
     );
 }

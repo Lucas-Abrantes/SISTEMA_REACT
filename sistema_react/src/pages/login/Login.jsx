@@ -4,7 +4,7 @@ import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { login } from '../../utils/api'; // Importando a função login
+import { login } from '../../utils/api'; 
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -20,7 +20,7 @@ function Login() {
             
             if (response.success && response.data.role) { 
                 localStorage.setItem('user', JSON.stringify(response.data));
-                localStorage.setItem('loginSuccess', 'true'); // Flag para controle de boas-vindas
+                localStorage.setItem('loginSuccess', 'true'); 
 
                 if (response.data.role === 'admin') {
                     navigate('/tela_admin'); 

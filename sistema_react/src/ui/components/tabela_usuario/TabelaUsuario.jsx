@@ -40,6 +40,9 @@ function TabelaUsuario() {
             columns={userColumns}
             onDelete={handleDeleteUser}
             onEdit={(id) => alert(`Editar ${id}`)} 
+            routeCurrent='users'
+            editRoute='editar_usuario'
+            createRoute='criar_conta'
         />
     );
 }

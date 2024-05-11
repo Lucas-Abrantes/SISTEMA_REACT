@@ -1,4 +1,4 @@
-.menuNav{
+.menuNav {
     background-color: #FFF2E7;
     height: 5rem;
     padding: 0 4rem;
@@ -9,7 +9,7 @@
 
 
 
-.logo{
+.logo {
     color: #580808;
     background-color: #c14040;
     padding: 0.5rem;
@@ -17,24 +17,24 @@
     cursor: pointer;
 }
 
-.navbar{
+.navbar {
     display: flex;
 }
 
 
-.list{
+.list {
     height: 2rem;
     display: flex;
     align-items: center;
     gap: 4em;
 }
 
-.item > a{
+.item>a {
     font-size: 17px;
     font-weight: 600;
     color: #12455f;
 }
 
-a:hover{
+a:hover {
     color: red;
 }

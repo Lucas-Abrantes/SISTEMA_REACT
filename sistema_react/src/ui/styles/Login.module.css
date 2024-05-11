@@ -1,88 +1,110 @@
-.page{
-    background-color: #dbe6ee;
-    height: calc(100vh - 5rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.page {
+  background-color: #dbe6ee;
+  min-height: calc(100vh - 5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.login{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-
-
-form{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-
-.titulo_login{
-    font-size: 30px;
-    font-weight: 800;
-    color: #12455f;
-    margin-bottom: 1rem;
-}
+.login {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 2rem;
   
+}
 
-.text_label{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 18px 0px;
+
+
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-  
-  
-.text_label > input{
-    width: 75%;
-    outline: none;
-    border-radius: 10px;
-    font-size: 12pt;
-    padding: 15px;
-    border: none;
-    color: rgb(35, 35, 36);
+
+
+.titulo_login {
+  font-size: 30px;
+  font-weight: 800;
+  color: #12455f;
+  margin-bottom: 1rem;
 }
-  
-  
-.text_label > input::placeholder{
+
+
+.text_label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 18px 0px;
+}
+
+
+.text_label>input {
+  width: 75%;
+  outline: none;
+  border-radius: 10px;
+  font-size: 12pt;
+  padding: 15px;
+  border: none;
+  color: rgb(35, 35, 36);
+}
+
+
+.text_label>input::placeholder {
   color: #304d7bde;
 }
-  
-  
-.btn{
-    width: 20%;
-    padding: 16px 0px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    margin-top: 2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color:  rgb(255, 255, 255);
-    background: rgb(201, 101, 101);
-    transition: 0.1s;
-    box-shadow: 0px 10px 40px -12px #051f4852;
+
+.select_input {
+  width: 80%;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
-  
-  
-.btn:hover{
+
+.select_input:hover {
+  border-color: #888;
+}
+
+.select_input:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+.btn {
+  width: 50%;
+  padding: 16px 0px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-top: 2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255);
+  background: rgb(201, 101, 101);
+  transition: 0.1s;
+  box-shadow: 0px 10px 40px -12px #051f4852;
+}
+
+
+.btn:hover {
   background-color: rgb(223, 75, 75);
 }
 
 
-.conta_user{
+.conta_user {
   border: none;
   outline: none;
   margin-top: 2rem;
@@ -103,9 +125,10 @@ form{
   background-color: #dbe6ee;
   margin-bottom: 0.8rem;
   cursor: pointer;
-  border-bottom: 1px solid transparent; /* Adiciona uma borda transparente */
+  border-bottom: 1px solid transparent;
 }
 
-.conta_user:hover, .conta_user2:hover {
+.conta_user:hover,
+.conta_user2:hover {
   border-bottom: 1px solid red;
 }
