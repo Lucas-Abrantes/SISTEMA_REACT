@@ -17,6 +17,10 @@ export const login = async (email, password) => {
 
 
 //rotas para o usuario
+
+
+
+
 export const register = async ({ name, email, password, typeUserId = 2 }) => {
     try {
         const response = await API.post('/users/store', {

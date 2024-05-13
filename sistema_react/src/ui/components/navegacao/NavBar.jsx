@@ -7,12 +7,22 @@ import { useNavigate } from 'react-router-dom';
 function NavBar(){
 
     const navigate = useNavigate();
+    const handleEvent = () => {
+        navigate('/evento');
+    };
+
     const handleCreateAccountClick = () => {
         navigate('/criar_conta');
     };
 
     const handleAccountClick = () => {
-        navigate('/login');
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        console.log(isLoggedIn);
+        if (isLoggedIn) {
+            navigate('/tela_usuario'); 
+        } else {
+            navigate('/login'); 
+        }
     };
     
     return (
@@ -22,9 +32,9 @@ function NavBar(){
             </div>
              <nav className={styles.navbar}>
                 <ul className={styles.list}>
-                    <li className={styles.item}><Link to="/eventos">Eventos</Link></li>
+                    <li className={styles.item}><Link to="/evento" onClick={handleEvent}>Eventos</Link></li>
                     <li className={styles.item}><Link to="/criar_conta" onClick={handleCreateAccountClick}>Criar conta</Link></li>
-                    <li className={styles.item}><Link to="/login" onClick={handleAccountClick}>Conta</Link></li>
+                    <li className={styles.item}><Link  onClick={handleAccountClick}>Conta</Link></li>
                 </ul>
             </nav>
         </header>

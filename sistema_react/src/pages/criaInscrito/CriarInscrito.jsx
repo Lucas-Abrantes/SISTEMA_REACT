@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
@@ -13,6 +13,10 @@ function CriarInscrito() {
     const [subscribeDate, setSubscribeDate] = useState('');
     const [status, setStatus] = useState('');
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const role = user && user.role; 
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -35,7 +39,12 @@ function CriarInscrito() {
                     draggable: true,
                     progress: undefined,
                 });
-                setTimeout(() => navigate('/'), 2500); 
+                console.log("Acessado por:", role);
+                if(role === 'admin'){
+                    navigate('/tela_admin');
+                }else{
+                    navigate(`/evento/inscricoes/${id}/pagamentos`);
+                }
             } else {
                 throw new Error("Registration failed");
             }
@@ -45,13 +54,15 @@ function CriarInscrito() {
         }
     };
 
+
+
     return (
         <>
             <NavBar />
             <div className={styles.page}>
                 <div className={styles.login}>
                     <form onSubmit={handleRegister}>
-                        <h3 className={styles.titulo_login}>Registrar Inscrito</h3>
+                        <h3 className={styles.titulo_login}>Inscrever-se</h3>
                         <div className={styles.text_label}>
                             <input type='text' id="userId" placeholder='ID do Usuário' required
                                 onChange={e => setUserId(e.target.value)}
@@ -62,7 +73,7 @@ function CriarInscrito() {
                             <input type='text' id="eventId" placeholder='ID do Evento' required
                                 onChange={e => setEventId(e.target.value)}
                                 className={styles.input}
-                            />
+                            />  
                         </div>
                         <div className={styles.text_label}>
                             <input type="text" placeholder='Formato: yyy-mm-dd' id="subscribeDate" required

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
 import { fetchAllEvents, deleteEvent } from '../../../utils/api';
+import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
 
 function TabelaEventos() {
     const [events, setEvents] = useState([]);
@@ -42,8 +43,15 @@ function TabelaEventos() {
         }}
     ];
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    const role = user && user.role; 
+    console.log(user); // Garante que role seja definido somente se user for não-null
+    console.log(role);
+
     return (
-        <TabelaGenerica
+        <>
+        {role === 'admin' ? (
+           <TabelaGenerica
             data={events}
             columns={eventColumns}
             onDelete={handleDeleteEvent}
@@ -52,6 +60,19 @@ function TabelaEventos() {
             editRoute='editar_evento'
             createRoute='criar_evento'
         />
+        ): (
+            <TabelaGenericaUser
+            data={events}
+            columns={eventColumns}
+            onDelete={handleDeleteEvent}
+            routeCurrent='events'
+            editRoute='editar_evento'
+            createRoute='criar_evento'
+            tableType='events'
+            />
+        )}
+        </>
+     
     );
 }
 

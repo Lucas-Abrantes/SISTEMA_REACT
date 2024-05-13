@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllSubscribers, deleteSubscriber } from '../../../utils/api';
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
-
+import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
 function TabelaInscritos() {
     const [subscribers, setSubscribers] = useState([]);
     useEffect(() => {
@@ -41,16 +41,37 @@ function TabelaInscritos() {
         { key: 'status', title: 'Status', formatter: formatStatus }
     ];
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    const role = user && user.role; 
+
+    console.log(role);
+
     return (
-        <TabelaGenerica
+        <>
+        {role === 'admin' ? (
+                <TabelaGenerica
+                data={subscribers}
+                columns={subscriberColumns}
+                onDelete={handleDeleteSubscriber}
+                onEdit={(id) => alert(`Editar ${id}`)} 
+                routeCurrent='subscribers'
+                editRoute='editar_inscritos'
+                createRoute='criar_inscrito'
+            />
+        ): (
+            <TabelaGenericaUser
             data={subscribers}
             columns={subscriberColumns}
             onDelete={handleDeleteSubscriber}
-            onEdit={(id) => alert(`Editar ${id}`)} 
             routeCurrent='subscribers'
             editRoute='editar_inscritos'
             createRoute='criar_inscrito'
-        />
+            tableType='subscribers'
+          />
+        )}
+        
+        </>
+    
     );
 }
 

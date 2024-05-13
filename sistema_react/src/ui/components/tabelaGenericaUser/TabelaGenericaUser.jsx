@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/Tabelas.module.css';
 import { useNavigate } from 'react-router-dom';
 
-function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRoute, createRoute }) {
+function TabelaGenericaUser({ data, columns, onDelete, onEdit, routeCurrent, editRoute, createRoute, tableType }) {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredData, setFilteredData] = useState(data);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(5);  
+    const [itemsPerPage, setItemsPerPage] = useState(5);  // Configura inicialmente 5 itens por página
 
     useEffect(() => {
         setFilteredData(data);
     }, [data]);
 
-    const handleEdit = (id) => {
-        if (editRoute) {
-            navigate(`/tela_admin/${routeCurrent}/${editRoute}/${id}`);
-        } else {
-            console.error("Edit route is undefined");
+    const renderActionButton = (item) => {
+        switch (tableType) {
+            case 'events':
+                return <button onClick={handleCreate} className={styles.btnEditar}>Inscrever</button>;
+            case 'payments':
+                return <button onClick={() => onEdit(item.id)} className={styles.btnEditar}>Efetuar Pagamento</button>;
+            case 'subscribers':
+                return <button onClick={() => onDelete(item.id)} className={styles.btnExcluir}>Excluir Inscrição</button>;
+            default:
+                return null;
         }
     };
     const handleSearchChange = (event) => {
@@ -34,7 +39,7 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
 
     const handleCreate = () => {
         if (createRoute) {
-            navigate(`/tela_admin/${routeCurrent}/${createRoute}`);
+            navigate(`/tela_usuario/${routeCurrent}/${createRoute}`);
         } else {
             console.error("Create route is undefined");
         }
@@ -61,9 +66,6 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
                             value={searchTerm}
                             onChange={handleSearchChange}
                         />
-                    </div>
-                    <div className={styles.add}>
-                        <button className={styles.new} onClick={handleCreate}>Add +</button>
                     </div>
                 </div>
                 <div className={styles.controls}>
@@ -97,8 +99,7 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
                                     ))}
                                     <td>
                                         <div className={styles.botoes}>
-                                            <button onClick={() => handleEdit(item.id)} className={styles.btnEditar}>Editar</button>
-                                            <button onClick={() => onDelete(item.id)} className={styles.btnExcluir}>Excluir</button>
+                                            {renderActionButton(item)}
                                         </div>
                                     </td>
                                 </tr>
@@ -115,4 +116,4 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
     );
 }
 
-export default TabelaGenerica;
+export default TabelaGenericaUser;

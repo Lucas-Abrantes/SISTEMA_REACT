@@ -10,7 +10,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -19,8 +19,10 @@ function Login() {
             console.log("API Response:", response); 
             
             if (response.success && response.data.role) { 
+
                 localStorage.setItem('user', JSON.stringify(response.data));
-                localStorage.setItem('loginSuccess', 'true'); 
+                localStorage.setItem('isLoggedIn', 'true');
+              
 
                 if (response.data.role === 'admin') {
                     navigate('/tela_admin'); 

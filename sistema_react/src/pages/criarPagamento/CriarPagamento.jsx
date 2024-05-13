@@ -12,7 +12,8 @@ function CriarPagamento() {
     const [paymentMethod, setPaymentMethod] = useState('');
     const [date, setDate] = useState(''); 
     const navigate = useNavigate();
-
+    const user = JSON.parse(localStorage.getItem('user'));
+    const role = user && user.role; 
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
@@ -40,7 +41,12 @@ function CriarPagamento() {
                     draggable: true,
                     progress: undefined,
                 });
-                setTimeout(() => navigate('/'), 2500); 
+                console.log("Acessado por:", role);
+                if(role === 'admin'){
+                    navigate('/tela_admin');
+                }else{
+                    navigate(`/`)
+                }
             } else {
                 throw new Error("Registration failed");
             }
