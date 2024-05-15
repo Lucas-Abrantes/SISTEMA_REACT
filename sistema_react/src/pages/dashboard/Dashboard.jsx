@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import styles from '../../ui/styles/Dashboard.module.css';
+import { fetchAllEvents } from '../../utils/api';
+import Classico from '../../assets/img/classico.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard(){
+    const [eventos, setEventos] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const loadEventos = async () => {
+            try {
+                const eventosData = await fetchAllEvents();
+                setEventos(eventosData);
+            } catch (error) {
+                console.error('Erro ao carregar eventos:', error);
+            }
+        };
+        loadEventos();
+    }, []);
+
+    const handleSubscriber = (eventId) => {
+        const user = localStorage.getItem('user'); 
+        if (user) {
+            navigate(`/evento/inscricoes/${eventId}`);
+        } else {
+            navigate('/login');
+            alert('Por favor, faça login para se inscrever nos eventos.');
+        }
+    }
+
     return(
         <>
             <div className={styles.hero}>
@@ -11,84 +40,29 @@ function Dashboard(){
                         Venha conhecer um pouco mais.
                     </p>
                 </div>
+                
             </div>
             <div className={styles.container}>
                 <div className={styles.principal}>
-                    <section className={styles.show}>
-                        <h2>Nossos eventos</h2>
+                    <article className={styles.show}>
+                        <div className={styles.titulo}>
+                                <h2 className={styles.titulo_eventos}>Nossos eventos</h2>
+                            </div>
                         <div className={styles.atracoes}>
-                            <a href='#id'>
+                            {eventos.slice(0,3).map((evento, index) => (
+
                                 <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
+                                    <img className={styles.imagens} src={Classico} alt='Descrição do evento' />
+                                    <h3>Nome: {evento.title}</h3>
+                                    <time>Data: {evento.data.slice(0, 10)}</time>
+                                    <p>Descrição: {evento.description}</p>
+                                    <span>Valor {`R$ ${evento.price}`}</span>
+                                    <button onClick={() => handleSubscriber(evento.id)} className={styles.subscriber}>Inscrever-se</button>
                                 </div>
-                            </a>
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>                          
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>                          
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>                           
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>                          
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>                          
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>                          
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>
-                            <a href='#id'>
-                                <div className={styles.evento_1}>
-                                    <img src='' alt='descricao da banda'/>
-                                    <h3>Banda 1</h3>
-                                    <time>02/05/2024</time>
-                                </div>
-                            </a>
+
+                            ))}
                         </div>
-                    </section>
+                    </article>
                 </div>
             </div>
             <section className={styles.container_2}>

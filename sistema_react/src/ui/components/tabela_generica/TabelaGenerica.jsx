@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/Tabelas.module.css';
 import { useNavigate } from 'react-router-dom';
 
-function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRoute, createRoute }) {
+function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRoute, createRoute, searchField }) {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredData, setFilteredData] = useState(data);
@@ -20,12 +20,13 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
             console.error("Edit route is undefined");
         }
     };
+
     const handleSearchChange = (event) => {
         const { value } = event.target;
         setSearchTerm(value);
-        setCurrentPage(1); 
+        setCurrentPage(1);
         if (value) {
-            const filtered = data.filter(item => item.id.toString().includes(value));
+            const filtered = data.filter(item => item[searchField]?.toString().toLowerCase().includes(value.toLowerCase()));
             setFilteredData(filtered);
         } else {
             setFilteredData(data);
@@ -57,7 +58,7 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
                     <div className={styles.pesquisa_user}>
                         <input
                             type='text'
-                            placeholder='Search by ID'
+                            placeholder={`Search by ${searchField}`}
                             value={searchTerm}
                             onChange={handleSearchChange}
                         />
@@ -68,7 +69,7 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
                 </div>
                 <div className={styles.controls}>
                     <label  className={styles.labelSelect}>
-                        Items por página:
+                        Items per page:
                         <select className={styles.selectInput}  value={itemsPerPage} onChange={handleItemsPerPageChange}>
                             <option value={5}>5</option>
                             <option value={10}>10</option>

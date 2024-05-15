@@ -43,6 +43,7 @@ function TabelaUsuario() {
             routeCurrent='users'
             editRoute='editar_usuario'
             createRoute='criar_conta'
+            searchField='name'
         />
     );
 }

@@ -29,13 +29,13 @@ function TabelaInscritos() {
 
 
     function formatStatus(value) {
-        return value ? "Ativo" : "Inativo";
+        return value ? "Inscrito" : "Nao inscrito";
     }
-
 
     const subscriberColumns = [
         { key: 'id', title: 'ID' },
-        { key: 'user_id', title: 'Usuário' },
+        { key: 'name', title: 'Name' },
+        { key: 'telefone', title: 'Telefone' },
         { key: 'event_id', title: 'Event' }, 
         { key: 'subscribe_date', title: 'Data', formatter: (value) => value.slice(0, 10) },   
         { key: 'status', title: 'Status', formatter: formatStatus }
@@ -57,6 +57,7 @@ function TabelaInscritos() {
                 routeCurrent='subscribers'
                 editRoute='editar_inscritos'
                 createRoute='criar_inscrito'
+                searchField='name'
             />
         ): (
             <TabelaGenericaUser
@@ -67,6 +68,7 @@ function TabelaInscritos() {
             editRoute='editar_inscritos'
             createRoute='criar_inscrito'
             tableType='subscribers'
+            searchField='name'
           />
         )}
         

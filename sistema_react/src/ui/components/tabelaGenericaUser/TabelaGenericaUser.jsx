@@ -1,49 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../styles/Tabelas.module.css';
-import { useNavigate } from 'react-router-dom';
 
-function TabelaGenericaUser({ data, columns, onDelete, onEdit, routeCurrent, editRoute, createRoute, tableType }) {
-    const navigate = useNavigate();
+function TabelaGenericaUser({ data, columns, routeCurrent, editRoute, createRoute, tableType, searchField }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredData, setFilteredData] = useState(data);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(5);  // Configura inicialmente 5 itens por página
+    const [itemsPerPage, setItemsPerPage] = useState(5);  
 
     useEffect(() => {
         setFilteredData(data);
     }, [data]);
 
-    const renderActionButton = (item) => {
-        switch (tableType) {
-            case 'events':
-                return <button onClick={handleCreate} className={styles.btnEditar}>Inscrever</button>;
-            case 'payments':
-                return <button onClick={() => onEdit(item.id)} className={styles.btnEditar}>Efetuar Pagamento</button>;
-            case 'subscribers':
-                return <button onClick={() => onDelete(item.id)} className={styles.btnExcluir}>Excluir Inscrição</button>;
-            default:
-                return null;
-        }
-    };
+
+
     const handleSearchChange = (event) => {
         const { value } = event.target;
         setSearchTerm(value);
-        setCurrentPage(1); 
+        setCurrentPage(1);
         if (value) {
-            const filtered = data.filter(item => item.id.toString().includes(value));
+            const filtered = data.filter(item => item[searchField]?.toString().toLowerCase().includes(value.toLowerCase()));
             setFilteredData(filtered);
         } else {
             setFilteredData(data);
         }
     };
-
-    const handleCreate = () => {
-        if (createRoute) {
-            navigate(`/tela_usuario/${routeCurrent}/${createRoute}`);
-        } else {
-            console.error("Create route is undefined");
-        }
-    };
+ 
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -62,7 +43,7 @@ function TabelaGenericaUser({ data, columns, onDelete, onEdit, routeCurrent, edi
                     <div className={styles.pesquisa_user}>
                         <input
                             type='text'
-                            placeholder='Search by ID'
+                            placeholder={`Search by ${searchField}`}
                             value={searchTerm}
                             onChange={handleSearchChange}
                         />
@@ -86,7 +67,6 @@ function TabelaGenericaUser({ data, columns, onDelete, onEdit, routeCurrent, edi
                                 {columns.map((column) => (
                                     <th key={column.key}>{column.title}</th>
                                 ))}
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,11 +77,7 @@ function TabelaGenericaUser({ data, columns, onDelete, onEdit, routeCurrent, edi
                                             {column.formatter ? column.formatter(item[column.key]) : item[column.key]}
                                         </td>
                                     ))}
-                                    <td>
-                                        <div className={styles.botoes}>
-                                            {renderActionButton(item)}
-                                        </div>
-                                    </td>
+                                  
                                 </tr>
                             ))}
                         </tbody>

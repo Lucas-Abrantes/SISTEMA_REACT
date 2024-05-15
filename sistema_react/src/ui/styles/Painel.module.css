@@ -23,8 +23,17 @@
 .menus_user {
   display: flex;
   gap: 3rem;
+  align-items: center;
   flex-direction: column;
 }
+
+.menus_user li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  width: 100%;
+}
+
 
 .menuButton {
   border: 1px solid transparent;
@@ -57,4 +66,38 @@
   background-color: rgba(179, 179, 255, 0.737);
   flex-grow: 1;
   padding: 20px;
+}
+
+.welcome{
+  display: flex;
+  width: 100%;
+  gap: 5rem;
+  justify-content: center;
+  align-items: start;
+  background: rgba(0, 0, 0, 0.37);
+
+}
+
+.nome{
+  color: #e6f0f5;
+  margin-top: 4rem;
+  font-size: 38px;
+}
+
+.menus_user > li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icons{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; 
+}
+
+.logout{
+  display: flex;
+  align-items: center;
 }

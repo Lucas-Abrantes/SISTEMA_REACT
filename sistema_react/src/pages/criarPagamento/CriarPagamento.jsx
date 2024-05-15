@@ -5,15 +5,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { registerPayment } from '../../utils/api';
+import { registerPayment, updateSubscriptionStatus } from '../../utils/api';
 
 function CriarPagamento() {
     const [value, setValue] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [date, setDate] = useState(''); 
     const navigate = useNavigate();
+    const subscriberId = JSON.parse(localStorage.getItem('subscriberId'));
     const user = JSON.parse(localStorage.getItem('user'));
     const role = user && user.role; 
+
+
+
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
@@ -29,33 +33,23 @@ function CriarPagamento() {
                 statusPayment: '1', 
                 payment_date: date 
             });
-            console.log("API Response:", response);
 
-            if (response.success) {
-                toast.success('Pagamento registrado com sucesso', {
-                    position: "top-center",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                console.log("Acessado por:", role);
-                if(role === 'admin'){
-                    navigate('/tela_admin');
-                }else{
-                    navigate(`/`)
+            if (response.success && response.data.status === "1") {
+                toast.success('Pagamento registrado com sucesso');
+                const statusUpdateResponse = await updateSubscriptionStatus(subscriberId, '1');
+                if (statusUpdateResponse.success) {
+                    toast.success('Inscrição atualizada com sucesso');
                 }
+                role === 'admin' ? navigate('/tela_admin') : navigate(`/`);
+
             } else {
-                throw new Error("Registration failed");
+                toast.error('Registro de pagamento falhou.');
             }
         } catch (error) {
             console.error("Erro no registro:", error.message);
             toast.error("Falha ao registrar o pagamento. Por favor, tente novamente.");
         }
     };
-
     return (
         <>
             <NavBar />

@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "../../ui/components/navegacao/NavBar";
 import Footer from "../../ui/components/footer/Footer";
 import styles from '../../ui/styles/Evento.module.css';
-import { fetchAllEvents } from '../../utils/api'; 
+import { fetchAllEvents } from '../../utils/api';
 import Classico from '../../assets/img/classico.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 
 function Eventos() {
-    const [eventos, setEventos] = useState([]); 
+    const [eventos, setEventos] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         const loadEventos = async () => {
             try {
                 const eventosData = await fetchAllEvents();
-                setEventos(eventosData); 
+                setEventos(eventosData);
             } catch (error) {
                 console.error('Erro ao carregar eventos:', error);
             }
@@ -23,9 +23,14 @@ function Eventos() {
         loadEventos();
     }, []);
 
-
     const handleSubscriber = (eventId) => {
-        navigate(`/evento/inscricoes/${eventId}`);
+        const user = localStorage.getItem('user'); 
+        if (user) {
+            navigate(`/evento/inscricoes/${eventId}`);
+        } else {
+            navigate('/login');
+            alert('Por favor, faça login para se inscrever nos eventos.');
+        }
     }
 
     return (
@@ -39,16 +44,16 @@ function Eventos() {
                         </div>
                         <div className={styles.atracoes}>
                             {eventos.map((evento, index) => (
-                                <a href={`${index + 1}`} key={index}>
-                                    <div className={styles.evento_1}>
-                                        <img className={styles.imagens} src={Classico} alt='Descrição do evento' />
-                                        <h3>Nome: {evento.title}</h3>
-                                        <time>Data: {evento.data.slice(0,10)}</time>
-                                        <p>Descrição: {evento.description}</p>
-                                        <span>Valor {`R$ ${evento.price}`}</span>
-                                        <button onClick={() => handleSubscriber(evento.id)} className={styles.subscriber}>Inscrever-se</button>
-                                    </div>
-                                </a>
+
+                                <div className={styles.evento_1}>
+                                    <img className={styles.imagens} src={Classico} alt='Descrição do evento' />
+                                    <h3>Nome: {evento.title}</h3>
+                                    <time>Data: {evento.data.slice(0, 10)}</time>
+                                    <p>Descrição: {evento.description}</p>
+                                    <span>Valor {`R$ ${evento.price}`}</span>
+                                    <button onClick={() => handleSubscriber(evento.id)} className={styles.subscriber}>Inscrever-se</button>
+                                </div>
+
                             ))}
                         </div>
                     </article>

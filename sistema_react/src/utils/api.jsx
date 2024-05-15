@@ -270,13 +270,29 @@ export const updateEvent = async ({ id, title, description, data, location, orga
 
 
 //rota de inscritos
-export const registerSubscriber = async ({ user_id, event_id, subscribe_date, status }) => {
+
+
+ export const updateSubscriptionStatus = async (subscriptionId, status) => {
+    try {
+        const response = await API.put(`/subscribers/update/${subscriptionId}`, {
+            status: status
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Falha ao atualizar o status da inscrição:', error);
+        throw new Error('Falha ao atualizar. Tente novamente.', { cause: error });
+    }
+};
+
+
+export const registerSubscriber = async ({ name, telefone, event_id, subscribe_date, status='0' }) => {
     try {
         const response = await API.post('/subscribers/store', {
-            user_id,
+            name,
+            telefone,
             event_id,
             subscribe_date,
-            status
+            status: status
         });
         if (response.status === 201) {
             return { success: true, data: response.data };
@@ -316,10 +332,11 @@ export const deleteSubscriber = async (id) => {
 };
 
 
-export const updateSubscribe = async ({ id, user_id, event_id, subscribe_date, status }) => {
+export const updateSubscribe = async ({ id, name,telefone, event_id, subscribe_date, status }) => {
     try {
         const response = await API.put(`/subscribers/update/${id}`, {
-            user_id,
+            name,
+            telefone,
             event_id,
             subscribe_date,
             status

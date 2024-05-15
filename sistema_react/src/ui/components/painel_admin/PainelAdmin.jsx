@@ -5,6 +5,12 @@ import TabelaUsuario from '../tabela_usuario/TabelaUsuario';
 import TabelaEvento from '../tabela_eventos/TabelaEvento';
 import TabelaInscrito from '../tabela_inscritos/TabelaInscrito';
 import TabelaPagamento from '../tabela_pagamentos/TabelaPagamento';
+import Dinheiro from '../../../assets/img/dinheiro.png';
+import Cadastro from '../../../assets/img/cadastro.png';
+import Logout from '../../../assets/img/logout.png';
+import User from '../../../assets/img/user.png';
+import Bilhete from '../../../assets/img/bilhete.png';
+
 
 function PainelAdmin() {
     const [activeTable, setActiveTable] = useState(''); 
@@ -36,12 +42,13 @@ function PainelAdmin() {
             <div className={styles.container_user}>
                 <div className={styles.menus}>
                     <ul className={styles.menus_user}>
-                        <li><button onClick={() => changeTable('users')} className={styles.menuButton}>Usuarios</button></li>
-                        <li><button onClick={() => changeTable('events')} className={styles.menuButton}>Eventos</button></li>
-                        <li><button onClick={() => changeTable('payments')} className={styles.menuButton}>Pagamentos</button></li>
-                        <li><button onClick={() => changeTable('subscribers')} className={styles.menuButton}>Inscritos</button></li>
+                        <li><img className={styles.icons} src={User} alt="usuario" /> <button onClick={() => changeTable('users')} className={styles.menuButton}>Usuarios</button></li>
+                        <li><img className={styles.icons} src={Bilhete} alt="eventos" /> <button onClick={() => changeTable('events')} className={styles.menuButton}>Eventos</button></li>
+                        <li><img className={styles.icons} src={Dinheiro} alt="pagamentos" /> <button onClick={() => changeTable('payments')} className={styles.menuButton}>Pagamentos</button></li>
+                        <li><img className={styles.icons} src={Cadastro} alt="inscricoes" /> <button onClick={() => changeTable('subscribers')} className={styles.menuButton}>Inscrições</button></li>
                     </ul>
                     <div className={styles.logout}>
+                        <img className={styles.icons} src={Logout} alt="sair" /> 
                         <button onClick={handleLogout} className={styles.btn1}>Sair</button>
                     </div>
                 </div>

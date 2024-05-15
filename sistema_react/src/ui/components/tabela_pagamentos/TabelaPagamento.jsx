@@ -21,7 +21,6 @@ function TabelaPagamento() {
 
   const user = JSON.parse(localStorage.getItem('user'));
   const role = user && user.role; 
-  console.log(user); // Garante que role seja definido somente se user for não-null
   console.log(role); 
 
   const handleDeletePayment = async (id) => {
@@ -35,11 +34,15 @@ function TabelaPagamento() {
     }
   };
 
+  function formatStatus(value) {
+    return value ? "true" : "false";
+}
+
   const paymentColumns = [
     { key: 'id', title: 'ID' },
     { key: 'value', title: 'Valor' },
     { key: 'payment_method', title: 'Método de Pagamento' },
-    { key: 'status', title: 'Status' }
+    { key: 'status', title: 'Status', formatter: formatStatus }
   ];
 
   return (
@@ -53,6 +56,7 @@ function TabelaPagamento() {
         editRoute='editar_pagamento'
         routeCurrent='payments'
         createRoute='criar_pagamento'
+        searchField='value'
       />
     ) : (
       <TabelaGenericaUser
@@ -63,6 +67,7 @@ function TabelaPagamento() {
         routeCurrent='payments'
         createRoute='criar_pagamento'
         tableType={'payments'}
+        searchField='value'
       />
     )}
   </>
