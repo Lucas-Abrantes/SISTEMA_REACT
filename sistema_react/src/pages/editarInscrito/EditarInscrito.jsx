@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { fecthIdSubscribe, updateSubscribe } from '../../utils/api'; 
+import { fecthIdSubscribe, updateSubscribe } from '../../utils/rotaInscrito/RotaInscrito'; 
 
 function EditarInscrito() {
     const [userId, setUserId] = useState('');

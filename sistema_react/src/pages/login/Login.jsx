@@ -3,7 +3,7 @@ import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { login } from '../../utils/api'; 
+import { login } from '../../utils/Login'; 
 
 function Login() {
     const [email, setEmail] = useState('');

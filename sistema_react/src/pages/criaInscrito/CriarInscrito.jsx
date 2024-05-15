@@ -5,7 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { registerSubscriber, fecthIdEvent } from '../../utils/api';
+import { registerSubscriber } from '../../utils/rotaInscrito/RotaInscrito';
+import {fecthIdEvent } from '../../utils/rotaEvento/RotaEvento';
+
 
 function CriarInscrito() {
     const [name, setName] = useState('');

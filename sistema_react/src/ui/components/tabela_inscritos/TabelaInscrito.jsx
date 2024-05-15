@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchAllSubscribers, deleteSubscriber } from '../../../utils/api';
+import { fetchAllSubscribers, deleteSubscriber } from '../../../utils/rotaInscrito/RotaInscrito';
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
 import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
 function TabelaInscritos() {

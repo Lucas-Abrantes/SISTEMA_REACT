@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { fecthIdPayment, updatePayment } from '../../utils/api';
+import { fecthIdPayment, updatePayment } from '../../utils/rotaPagamento/RotaPagamento';
 
 function EditarPagamento() {
     const [value, setValue] = useState('');

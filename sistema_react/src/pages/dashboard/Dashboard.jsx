@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import styles from '../../ui/styles/Dashboard.module.css';
-import { fetchAllEvents } from '../../utils/api';
+import { fetchAllEvents } from '../../utils/rotaEvento/RotaEvento';
 import Classico from '../../assets/img/classico.jpeg';
 import { useNavigate } from 'react-router-dom';
 

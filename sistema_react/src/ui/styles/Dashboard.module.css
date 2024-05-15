@@ -20,7 +20,7 @@
     background-color: #ffa41b;
     border-radius: 1rem;
     padding: 1rem;
-    margin: 4rem 0 0 4rem;
+    margin: 4rem 0 0 8rem;
     justify-content: start;
     align-items: center;
     box-sizing: border-box; /* Inclui padding e border no cálculo de width */
@@ -113,9 +113,8 @@
 
 .container_2 {
     background-color: #000000;
-
     display: flex;
-    justify-content: center;
+    justify-content: start;
 }
 
 .container_app {
@@ -125,6 +124,8 @@
 
 .container_add {
     display: flex;
+    margin: 1rem 0 0 8rem;
+    
     width: 70%;
     justify-content: center;
     align-items: flex-start;

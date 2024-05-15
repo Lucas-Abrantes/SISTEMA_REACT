@@ -44,27 +44,30 @@ color:  #12455f;
 .add{
   text-align: end;
   margin-top: 1rem;
+  width: 100px;
 }
 
 
 .new{
-  border: 1px solid transparent;
-  font-size: 18px;
-  background-color: rgb(57, 91, 195);
-  padding: 0.4rem;
-  color: rgb(179, 183, 193);
-  font-weight: 700;
   cursor: pointer;
-  border-radius: 1rem;
-  box-shadow: 0px 10px 40px -12px #051f4852;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  font-size: 15px;
+  border-radius: 9px;
+  background: rgb(57, 91, 195);
+  transition: 0.2s;
   letter-spacing: 1px;
-    line-height: 1.5rem;
+  line-height: 1.5rem;
+  color: white;
+  box-shadow: 0px 10px 40px -12px #051f4852;
 }
 
 
 
 .new:hover{
-  color: white;
+  background: rgb(66, 89, 158);
+  color: rgb(239, 241, 245);
 }
 
 .tabela{
@@ -162,6 +165,7 @@ th {
 .btnEditar{
     cursor: pointer;
     width: 100%;
+    font-size: 15px;
     padding: 0.5rem;
     border: none;
     border-radius: 9px;
@@ -169,7 +173,7 @@ th {
     transition: 0.2s;
     letter-spacing: 1px;
     line-height: 1.5rem;
-    color: rgb(179, 183, 193);
+    color: white;
     box-shadow: 0px 10px 40px -12px #051f4852;
   }
 
@@ -177,14 +181,14 @@ th {
     cursor: pointer;
     width: 100%;
     line-height: 1.5rem;
-
+    font-size: 15px;
     padding: 0.5rem;
     border: none;
     border-radius: 9px;
     background: rgb(230, 62, 62);
     transition: 0.2s;
     letter-spacing: 1px;
-    color: rgb(179, 183, 193);
+    color: white;
     box-shadow: 0px 10px 40px -12px #051f4852;
   }
 
@@ -193,10 +197,9 @@ th {
     color: rgb(239, 241, 245);
   }
 
-  .btnEditar:hover{
+  .btnEditar:hover, .pages:hover{
     background: rgb(66, 89, 158);
     color: rgb(239, 241, 245);
-
   }
 
 .pagination{
@@ -207,18 +210,22 @@ th {
 }  
 
 .pages{
-  font-size: 18px;
-  font-weight: 600;
-  color: rgb(179, 183, 193);
-  border: 1px solid transparent;
-  background-color: rgb(66, 89, 158);
-  margin-top: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 0.6rem;
-  line-height: 1rem;
   cursor: pointer;
+    width: 5%;
+    font-size: 15px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 9px;
+    background: rgb(57, 91, 195);
+    transition: 0.2s;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+    color: white;
+    box-shadow: 0px 10px 40px -12px #051f4852;
 
 }
+
+
 
 
 .pages:hover{

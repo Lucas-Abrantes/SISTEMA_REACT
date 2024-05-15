@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchAllPayments, deletePayment } from '../../../utils/api';
+import { fetchAllPayments, deletePayment } from '../../../utils/rotaPagamento/RotaPagamento';
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
 import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
 

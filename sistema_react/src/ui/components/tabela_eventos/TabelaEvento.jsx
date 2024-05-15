@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
-import { fetchAllEvents, deleteEvent } from '../../../utils/api';
+import { fetchAllEvents, deleteEvent } from '../../../utils/rotaEvento/RotaEvento';
 
 function TabelaEventos() {
     const [events, setEvents] = useState([]);

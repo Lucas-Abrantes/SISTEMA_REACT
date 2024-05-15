@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { registerEvent } from '../../utils/api';
+import { registerEvent } from '../../utils/rotaEvento/RotaEvento';
 
 function CriarEvento() {
     const [title, setTitle] = useState('');

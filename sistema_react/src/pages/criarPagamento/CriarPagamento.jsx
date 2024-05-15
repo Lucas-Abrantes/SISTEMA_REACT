@@ -5,7 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { registerPayment, updateSubscriptionStatus } from '../../utils/api';
+import { registerPayment } from '../../utils/rotaPagamento/RotaPagamento';
+import {updateSubscriptionStatus} from '../../utils/rotaInscrito/RotaInscrito';
 
 function CriarPagamento() {
     const [value, setValue] = useState('');

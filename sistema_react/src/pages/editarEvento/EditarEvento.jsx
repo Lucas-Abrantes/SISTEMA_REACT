@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { fecthIdEvent, updateEvent } from '../../utils/api'; 
+import { fecthIdEvent, updateEvent } from '../../utils/rotaEvento/RotaEvento'; 
 
 function EditarEvento() {
     const [title, setTitle] = useState('');

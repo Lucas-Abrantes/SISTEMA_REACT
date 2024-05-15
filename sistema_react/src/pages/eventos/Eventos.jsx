@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "../../ui/components/navegacao/NavBar";
 import Footer from "../../ui/components/footer/Footer";
 import styles from '../../ui/styles/Evento.module.css';
-import { fetchAllEvents } from '../../utils/api';
+import { fetchAllEvents } from '../../utils/rotaEvento/RotaEvento';
 import Classico from '../../assets/img/classico.jpeg';
 import { useNavigate } from 'react-router-dom';
 

@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
-import { register } from '../../utils/api';
+import { register } from '../../utils/rotaUusario/RotaUsuario';
 
 function CriarConta() {
     const [name, setName] = useState('');
