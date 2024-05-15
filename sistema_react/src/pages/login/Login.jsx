@@ -18,6 +18,7 @@ function Login() {
             console.log("API Response:", response); 
             
             if (response.success && response.data.role) { 
+                console.log("User role:", response.data.role); // Adicione este log
 
                 localStorage.setItem('user', JSON.stringify(response.data));
                 localStorage.setItem('isLoggedIn', 'true');
@@ -25,9 +26,12 @@ function Login() {
 
                 if (response.data.role === 'admin') {
                     navigate('/tela_admin'); 
-                } else if (response.data.role === 'cliente') {
+                } else if(response.data.role === 'cliente') {
                     navigate('/tela_usuario'); 
-                } else {
+                }else if(response.data.role === 'org'){
+                    navigate('/tela_organizador/');  
+                }
+                 else {
                     throw new Error("User role is not defined or unauthorized");
                 }
             } else {

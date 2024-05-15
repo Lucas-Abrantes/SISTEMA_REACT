@@ -28,13 +28,13 @@ function NavBar() {
         } else if (isLoggedIn && role === 'admin') {
             navigate('/tela_admin');
         } else {
-            console.log("Erro ao acessar a conta.");
+            navigate('/login');
         }
     };
 
     return (
         <header className={styles.menuNav}>
-            <div>
+            <div className={styles.container_logo}>
                 <h3 onClick={handleDashboard} className={styles.logo}>Group Events</h3>
             </div>
             <nav className={styles.navbar}>

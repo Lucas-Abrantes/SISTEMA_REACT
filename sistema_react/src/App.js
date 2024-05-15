@@ -14,6 +14,7 @@ import CriarPagamento from "./pages/criarPagamento/CriarPagamento";
 import CriarConta from "./pages/criarConta/CriarConta";
 import CriarInscrito from "./pages/criaInscrito/CriarInscrito";
 import Evento from "./pages/eventos/Eventos";
+import TelaOrganizador from "./pages/telaOrganizador/TelaOrganizador";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,10 +34,17 @@ const router = createBrowserRouter(
       <Route path="/tela_admin/subscribers/criar_inscrito" element={<CriarInscrito/>}></Route> 
 
       <Route path="/tela_usuario/*" element={<TelaUsuario/>}></Route> 
-
+      
       <Route path="/evento/*" element={<Evento/>}></Route> 
       <Route path="/evento/inscricoes/:id" element={<CriarInscrito/>}></Route> 
       <Route path="/evento/inscricoes/:id/pagamentos" element={<CriarPagamento/>}></Route> 
+      <Route path="/criar_conta" element={<CriarConta/>}></Route>
+      
+       
+      <Route path="/tela_organizador/*" element={<TelaOrganizador/>}></Route> 
+
+
+
 
       <Route path="*" element={<NotPage/>}></Route> 
       <Route path="/login" element={<Login/>}></Route> 

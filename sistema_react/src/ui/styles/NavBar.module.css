@@ -3,22 +3,41 @@
     height: 5rem;
     padding: 0 4rem;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 
+.container_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffa41b;
 
+    height: 60px;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+
+}
 
 .logo {
-    color: #580808;
-    background-color: #c14040;
+    color: #12455f;
     padding: 0.5rem;
     border-radius: 20rem;
     cursor: pointer;
+    font-size: 15px;
+    font-style:oblique;
+    transition: 0.2s;
+    letter-spacing: 3px;
+}
+
+.logo:hover{
+    color: #dbcece;
 }
 
 .navbar {
     display: flex;
+    margin-right: 8rem;
 }
 
 

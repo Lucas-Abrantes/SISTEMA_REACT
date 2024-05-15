@@ -12,20 +12,12 @@ function CriarInscrito() {
     const [telefone, setTelefone] = useState('');
     const [eventId, setEventId] = useState('');
     const [eventTitle, setEventTitle] = useState(''); 
-
     const [subscribeDate, setSubscribeDate] = useState('');
     const [status, setStatus] = useState('0');
-    
     const navigate = useNavigate();
     const { id } = useParams();
-
-    
     const user = JSON.parse(localStorage.getItem('user'));
     const role = user && user.role; 
-
-
-
-
 
     useEffect(() => {
         if (id) {

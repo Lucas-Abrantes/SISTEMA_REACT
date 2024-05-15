@@ -3,7 +3,6 @@ import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Usuario from '../../assets/img/usuario.png';
 import PainelUser from '../../ui/components/painel_user/PainelUser';
 
 function TelaUsuario() {
