@@ -1,9 +1,10 @@
 .menuNav {
     background-color: #FFF2E7;
-    height: 5rem;
-    padding: 0 4rem;
     display: flex;
+    height: auto; /* Alterado para altura automática */
+    padding: 1rem; /* Alterado para espaçamento uniforme */
     width: 100%;
+    flex-wrap: wrap; /* Permitir que os itens envolvam para a próxima linha */
     justify-content: space-between;
     align-items: center;
 }
@@ -13,7 +14,7 @@
     align-items: center;
     justify-content: center;
     background-color: #ffa41b;
-    margin-left: 3.98rem;
+    margin-left: 2.12rem;
     height: 60px;
     border: 1px solid transparent;
     border-radius: 1rem;
@@ -56,4 +57,44 @@
 
 a:hover {
     color: red;
+}
+
+
+@media screen and (max-width: 790px) {
+    .menuNav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 28rem;
+        padding: 0;
+    }
+
+    .container_logo {
+        margin: 1rem 0; /* Alterado para margem superior e inferior */
+    }
+
+    .navbar {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    .list {
+        flex-direction: column;
+        width: 100%;
+        gap: 5rem; /* Removido o espaçamento entre os itens */
+    }
+
+    .item{
+        width: 100%;
+        border-bottom: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .item > a {
+        padding: 1rem;
+    }
+
+
 }

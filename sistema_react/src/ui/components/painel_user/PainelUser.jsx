@@ -10,6 +10,8 @@ import Logout from '../../../assets/img/logout.png';
 
 function PainelUser() {
     const [activeTable, setActiveTable] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
 
@@ -26,6 +28,8 @@ function PainelUser() {
 
     const changeTable = (table) => {
         setActiveTable(table);
+        setMenuOpen(false);  // Fecha o menu após selecionar uma tabela
+
     };
 
     const handleLogout = () => {
@@ -39,7 +43,11 @@ function PainelUser() {
         <div className={styles.container}>
             <div className={styles.container_user}>
                 <div className={styles.menus}>
-                    <ul className={styles.menus_user}>
+                    <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <ul className={`${styles.menus_user} ${menuOpen ? styles.show : ''}`}>
                         <li> <img className={styles.icons} src={Dinheiro} alt='pagamento'/> <button onClick={() => changeTable('payments')} className={styles.menuButton}>Pagamentos</button>
                         </li>
                         <li><img className={styles.icons} src={Cadastro} alt='inscritos'/> <button onClick={() => changeTable('subscribers')} className={styles.menuButton}>Inscrições</button></li>

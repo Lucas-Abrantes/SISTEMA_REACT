@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchAllSubscribers, deleteSubscriber } from '../../../utils/rotaInscrito/RotaInscrito';
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
 import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
+import 'react-toastify/dist/ReactToastify.css';
 function TabelaInscritos() {
     const [subscribers, setSubscribers] = useState([]);
     useEffect(() => {
@@ -21,9 +22,9 @@ function TabelaInscritos() {
             await deleteSubscriber(id);
             const updatedSubscribers = subscribers.filter(subscriber => subscriber.id !== id);
             setSubscribers(updatedSubscribers);
-            alert('Inscrito excluído com sucesso!');
         } catch (error) {
-            alert('Falha ao excluir inscrito. Tente novamente.');
+            console.log(error);
+
         }
     };
 
@@ -48,12 +49,11 @@ function TabelaInscritos() {
 
     return (
         <>
-        {role === 'admin' ? (
+        {role === 'admin' || role === 'org' ? (
                 <TabelaGenerica
                 data={subscribers}
                 columns={subscriberColumns}
                 onDelete={handleDeleteSubscriber}
-                onEdit={(id) => alert(`Editar ${id}`)} 
                 routeCurrent='subscribers'
                 editRoute='editar_inscritos'
                 createRoute='criar_inscrito'

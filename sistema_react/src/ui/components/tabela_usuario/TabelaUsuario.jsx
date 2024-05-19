@@ -21,9 +21,8 @@ function TabelaUsuario() {
             await deleteUser(id);
             const updatedUsers = users.filter(user => user.id !== id);
             setUsers(updatedUsers);
-            alert('Usuário excluído com sucesso!');
         } catch (error) {
-            alert('Falha ao excluir usuário. Tente novamente.');
+            console.log(error);
         }
     };
 

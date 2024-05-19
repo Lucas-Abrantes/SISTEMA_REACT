@@ -14,9 +14,10 @@ import Bilhete from '../../../assets/img/bilhete.png';
 
 function PainelOrganizador() {
     const [activeTable, setActiveTable] = useState(''); 
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
-
     const tableComponents = {
         users: TabelaUsuario,
         events: TabelaEvento,
@@ -30,6 +31,8 @@ function PainelOrganizador() {
 
     const changeTable = (table) => {
         setActiveTable(table);
+        setMenuOpen(false);  // Fecha o menu após selecionar uma tabela
+
     };
 
     const handleLogout = () => {
@@ -43,7 +46,12 @@ function PainelOrganizador() {
         <div className={styles.container}>
             <div className={styles.container_user}>
                 <div className={styles.menus}>
-                    <ul className={styles.menus_user}>
+                    <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <ul className={`${styles.menus_user} ${menuOpen ? styles.show : ''}`}>
                         <li><img className={styles.icons} src={User} alt="usuario" /> <button onClick={() => changeTable('users')} className={styles.menuButton}>Usuarios</button></li>
                         <li><img className={styles.icons} src={Bilhete} alt="eventos" /> <button onClick={() => changeTable('events')} className={styles.menuButton}>Eventos</button></li>
                         <li><img className={styles.icons} src={Dinheiro} alt="pagamentos" /> <button onClick={() => changeTable('payments')} className={styles.menuButton}>Pagamentos</button></li>
@@ -56,7 +64,7 @@ function PainelOrganizador() {
                 </div>
             </div>
             {!activeTable && <div className={styles.welcome}>
-                <h1 className={styles.nome}>Bem-vindo,  {user.name}!</h1>
+                <h1 className={styles.nome}>Bem-vindo, {user.name} </h1>
             </div>}
             {TableComponent && <TableComponent />}
         </div>

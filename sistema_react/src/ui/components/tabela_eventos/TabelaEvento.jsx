@@ -22,11 +22,18 @@ function TabelaEventos() {
             await deleteEvent(id);
             const updatedEvents = events.filter(event => event.id !== id);
             setEvents(updatedEvents);
-            alert('Evento excluído com sucesso!');
         } catch (error) {
-            alert('Falha ao excluir evento. Tente novamente.');
+            console.log(error);
         }
     };
+
+    function formatStatus(value) {
+        if(value === '1'){
+            return 'admin';
+        }
+        return 'organizador';
+    }
+    
 
     const eventColumns = [
         { key: 'id', title: 'ID' },
@@ -34,7 +41,7 @@ function TabelaEventos() {
         { key: 'description', title: 'Description' },
         { key: 'data', title: 'Data' , formatter: (value) => value.slice(0, 10)},
         { key: 'location', title: 'Location' },
-        { key: 'organizador', title: 'Organizador' },
+        { key: 'organizador', title: 'Organizador', formatter: formatStatus },
         { key: 'capacity', title: 'Capacity' },
         { key: 'price', title: 'Price', formatter: (value) => {
             const numberValue = Number(value);

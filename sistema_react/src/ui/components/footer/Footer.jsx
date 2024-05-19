@@ -19,6 +19,15 @@ function Footer(){
                 </ul>
             </div>
 
+            <div className={styles.empresa}>
+                <h4>Atendimento</h4>
+                <ul className={styles.itens_empresa}>
+                    <li><a href='#id'>SAC</a></li>
+                    <li><a href='#id'>Politica de privacidade</a></li>
+                    <li><a href='#id'>Garantia</a></li>
+                    <li><a href='#id'>Forma de pagamento</a></li>
+                </ul>
+            </div>            
             <div className={styles.empresa_contato}>
                 <h4>Precisa de ajuda?</h4>
                 <ul className={styles.contatos}>
@@ -31,14 +40,14 @@ function Footer(){
                         <a href='#email'>event_group@hotmail.com</a>
                     </li>
                     <li>
-                        <a href='#'>Dúvidas frequentes</a>
+                        <a href='#d'>Dúvidas frequentes</a>
                     </li>
                 </ul>
             </div>
             
             <div className={styles.aplicativos}>
                 <h4>Baixe nosso app</h4>
-                <div>
+                <div className={styles.apps}>
                     <a href='#apple'>Apple Store</a>
                     <a href='#playstore'>Play Store</a>
                 </div>
@@ -48,7 +57,7 @@ function Footer(){
         <div className={styles.adicionais}>
             <div className={styles.info}>
                 <div className={styles.footer_group}>
-                    <p>Copyright © 2024 Group Events - CNPJ: 20.150.999/0001-35</p>
+                    <p className={styles.dados}>Copyright © 2024 Group Events - CNPJ: 20.150.999/0001-35</p>
                     <div className={styles.footer_midias}>
                         <a className={styles.redes} href='#'><img src={FacebookImg} alt='facebook'/></a>
                         <a className={styles.redes} href='#'><img src={InstagramImg} alt='instagram'/></a>

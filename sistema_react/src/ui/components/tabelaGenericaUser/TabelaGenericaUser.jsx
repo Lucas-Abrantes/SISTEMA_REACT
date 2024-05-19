@@ -11,7 +11,8 @@ function TabelaGenericaUser({ data, columns, routeCurrent, editRoute, createRout
         setFilteredData(data);
     }, [data]);
 
-
+    const user = JSON.parse(localStorage.getItem('user'));
+    const role = user && user.role;
 
     const handleSearchChange = (event) => {
         const { value } = event.target;

@@ -6,20 +6,19 @@ import styles from '../../ui/styles/Login.module.css';
 import NavBar from '../../ui/components/navegacao/NavBar';
 import Footer from '../../ui/components/footer/Footer';
 import { registerSubscriber } from '../../utils/rotaInscrito/RotaInscrito';
-import {fecthIdEvent } from '../../utils/rotaEvento/RotaEvento';
-
+import { fecthIdEvent } from '../../utils/rotaEvento/RotaEvento';
 
 function CriarInscrito() {
     const [name, setName] = useState('');
     const [telefone, setTelefone] = useState('');
     const [eventId, setEventId] = useState('');
-    const [eventTitle, setEventTitle] = useState(''); 
+    const [eventTitle, setEventTitle] = useState('');
     const [subscribeDate, setSubscribeDate] = useState('');
     const [status, setStatus] = useState('0');
     const navigate = useNavigate();
     const { id } = useParams();
     const user = JSON.parse(localStorage.getItem('user'));
-    const role = user && user.role; 
+    const role = user && user.role;
 
     useEffect(() => {
         if (id) {
@@ -32,7 +31,6 @@ function CriarInscrito() {
             });
         }
     }, [id]);
-
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -58,12 +56,20 @@ function CriarInscrito() {
                     draggable: true,
                     progress: undefined,
                 });
-                console.log("Acessado por:", role);
-                if(role === 'admin'){
-                    navigate('/tela_admin');
-                }else{
-                    navigate(`/evento/inscricoes/${id}/pagamentos`);
-                }
+
+                // Adiciona um atraso antes de navegar para permitir que o toast seja exibido
+                setTimeout(() => {
+                    console.log("Acessado por:", role);
+                    if(role === 'admin'){
+                        navigate('/tela_admin');
+                    }else if(role ==='org'){
+                        navigate('/tela_organizador');
+                    }
+                    
+                    else{
+                        navigate(`/evento/inscricoes/${id}/pagamentos`);
+                    }
+                }, 2100); // atraso ligeiramente maior que o autoClose do toast
             } else {
                 throw new Error("Registration failed");
             }
@@ -72,8 +78,6 @@ function CriarInscrito() {
             toast.error("Falha ao registrar inscrito. Por favor, tente novamente.");
         }
     };
-
-
 
     return (
         <>
@@ -96,18 +100,17 @@ function CriarInscrito() {
                             />
                         </div>
                         <div className={styles.text_label}>
-                            <input type='text' value={eventTitle || ''} readOnly className={styles.input} />
+                            <input type='text' value={eventTitle} className={styles.input} readOnly />
                         </div>
 
-                        {/* Campo oculto para enviar o ID do evento */}
                         <input type="hidden" name="event_id" value={eventId} />
                         <div className={styles.text_label}>
-                            <input type="text" placeholder='Formato: yyy-mm-dd' id="subscribeDate" required
+                            <input type="text" placeholder='Formato: yyyy-mm-dd' id="subscribeDate" required
                                 onChange={(e) => setSubscribeDate(e.target.value)}
                                 className={styles.input}
                             />
                         </div>
-                    
+
                         <button className={styles.btn} type='submit'>Enviar</button>
                     </form>
                 </div>

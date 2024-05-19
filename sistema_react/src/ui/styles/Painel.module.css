@@ -1,21 +1,23 @@
 .container {
   display: flex;
-  width: 100vw;
-  height: calc(100vh - 5rem);
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.091);
 }
 
 .container_user {
-  width: 20vw;
+  max-width: 400px;
+  box-sizing: border-box;
   padding: 2rem;
   display: flex;
-  justify-content: start;
-  left: 0;
+  justify-content: flex-start;
   background-color: rgba(0, 0, 0, 0.091);
 
 }
 
 .menus {
   display: flex;
+  flex-direction: column;
   gap: 3rem;
   margin-left: 1rem;
   flex-direction: column;
@@ -54,6 +56,7 @@
   background-color: transparent;
   width: 40%;
   padding: 5px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -63,7 +66,6 @@
 }
 
 .content {
-  border: 1px solid red;
   background-color: rgba(179, 179, 255, 0.737);
   flex-grow: 1;
   padding: 20px;
@@ -101,4 +103,107 @@
 .logout{
   display: flex;
   align-items: center;
+}
+
+
+/* Estilos para o menu responsivo */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px;
+  transition: 0.4s;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.menu a {
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: flex;
+}
+
+@media screen and (max-width: 790px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menus_user {
+    display: none;
+  }
+
+  .show {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 821px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .menus_user {
+    display: none;
+  }
+
+  .show {
+    display: flex;
+    flex-direction: column;
+  }
+  .welcome{
+    height: 100vh;
+  }
+  .container{
+    flex-direction: column;
+  }
+
+  .container_user{
+    max-width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .menus_user {
+    display: none;
+  }
+
+  .show {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 415px) {
+    .container{
+      flex-direction: column;
+    }
 }

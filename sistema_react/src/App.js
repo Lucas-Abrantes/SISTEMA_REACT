@@ -42,7 +42,14 @@ const router = createBrowserRouter(
       
        
       <Route path="/tela_organizador/*" element={<TelaOrganizador/>}></Route> 
-
+      <Route path="/tela_organizador/payments/editar_pagamento/:id" element={<EditarPagamento/>}></Route> 
+      <Route path="/tela_organizador/events/editar_evento/:id" element={<EditarEvento/>}></Route> 
+      <Route path="/tela_organizador/users/editar_usuario/:id" element={<EditarUsuario/>}></Route> 
+      <Route path="/tela_organizador/subscribers/editar_inscritos/:id" element={<EditarInscrito/>}></Route> 
+      <Route path="/tela_organizador/payments/criar_pagamento" element={<CriarPagamento/>}></Route> 
+      <Route path="/tela_organizador/users/criar_conta" element={<CriarConta/>}></Route> 
+      <Route path="/tela_organizador/events/criar_evento" element={<CriarEvento/>}></Route> 
+      <Route path="/tela_organizador/subscribers/criar_inscrito" element={<CriarInscrito/>}></Route> 
 
 
 

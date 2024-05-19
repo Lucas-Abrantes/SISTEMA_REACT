@@ -28,14 +28,14 @@ function TabelaPagamento() {
       await deletePayment(id);
       const updatedPayments = payments.filter(payment => payment.id !== id);
       setPayments(updatedPayments);
-      alert('Pagamento excluído com sucesso!');
     } catch (error) {
-      alert('Falha ao excluir pagamento. Tente novamente.');
+      console.log(error);
+
     }
   };
 
   function formatStatus(value) {
-    return value ? "true" : "false";
+    return value ? "ativo" : "inativo";
 }
 
   const paymentColumns = [
@@ -48,7 +48,7 @@ function TabelaPagamento() {
   return (
    
     <>
-    {role === 'admin'? (
+    {role === 'admin' || role === 'org'? (
       <TabelaGenerica
         data={payments}
         columns={paymentColumns}

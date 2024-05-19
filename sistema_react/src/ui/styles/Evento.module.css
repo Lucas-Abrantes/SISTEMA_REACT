@@ -80,3 +80,15 @@
     background-color: #ffa41b;
     color: black;
 }
+
+@media screen and (max-width:915px) {
+    .atracoes{
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
+    }
+}
+
+@media screen and (max-width:615px) {
+    .atracoes{
+        grid-template-columns: minmax(0, 1fr)
+    }
+}
