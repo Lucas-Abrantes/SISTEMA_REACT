@@ -25,7 +25,8 @@ function EditarPagamento() {
                 setValue(payment.value);
                 setPaymentMethod(payment.payment_method);
                 setDate(payment.payment_date.slice(0, 10)); 
-                setStatus(payment.status);
+                setStatus(String(payment.status));
+
             } catch (error) {
                 toast.error('Erro ao buscar detalhes do pagamento.');
             } finally {
@@ -46,7 +47,7 @@ function EditarPagamento() {
                 id,
                 value: Number(value),
                 payment_method: paymentMethod,
-                statusPayment: '1',
+                statusPayment: status,
                 payment_date: date 
             });
             if (response.success) {
@@ -134,7 +135,7 @@ function EditarPagamento() {
                                     <select
                                         className={styles.select_input}
      
-                                        type="number" 
+                                        type="text" 
                                         id="status" 
                                         name="status" 
                                         placeholder="status do pagamento" 
@@ -144,8 +145,8 @@ function EditarPagamento() {
                                         disabled={loading}
                                     >
                                     <option value="">Selecione o status</option>
-                                    <option value="1">Ativo</option>
-                                    <option value="0">Inativo</option> 
+                                    <option value="1">Pago</option>
+                                    <option value="0">Em aberto</option> 
 
                                     </select>    
                                 </div>

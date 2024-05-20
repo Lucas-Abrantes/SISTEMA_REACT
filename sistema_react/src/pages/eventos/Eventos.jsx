@@ -11,7 +11,7 @@ import imageMapping from '../../ui/components/eventosImg/ImageMapping';
 function Eventos() {
     const [eventos, setEventos] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(5);
+    const [itemsPerPage, setItemsPerPage] = useState(6);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -52,11 +52,9 @@ function Eventos() {
         }
     };
 
-    // Lógica de paginação
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = eventos.slice(indexOfFirstItem, indexOfLastItem);
-
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     const handleItemsPerPageChange = (event) => {

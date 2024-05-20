@@ -29,7 +29,7 @@ function TabelaInscritos() {
     };
 
     function formatStatus(value) {
-        return value ? "Inscrito" : "Nao inscrito";
+        return value ? "Inscrito" : "Em aberto";
     }
 
     const subscriberColumns = [

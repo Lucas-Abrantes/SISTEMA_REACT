@@ -10,12 +10,11 @@ import { updateSubscriptionStatus } from '../../utils/rotaInscrito/RotaInscrito'
 import { fecthIdEvent } from '../../utils/rotaEvento/RotaEvento';
 
 function CriarPagamento() {
-    const { id } = useParams(); // Obtém o ID do evento dos parâmetros da URL
+    const { id } = useParams(); 
     const [value, setValue] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [date, setDate] = useState('');
     const navigate = useNavigate();
-    const subscriberId = JSON.parse(localStorage.getItem('subscriberId'));
     const user = JSON.parse(localStorage.getItem('user'));
     const role = user && user.role;
 
@@ -33,11 +32,10 @@ function CriarPagamento() {
                 toast.error('Falha ao carregar o evento. Por favor, tente novamente.');
             }
         };
-
         if (id) {
             loadEvent();
         } else {
-            toast.error('ID do evento não fornecido.');
+            console.log('Erro no id');
         }
     }, [id]);
 
@@ -49,29 +47,40 @@ function CriarPagamento() {
                 toast.error('Por favor, insira um valor válido maior que zero.');
                 return;
             }
-
+    
             const response = await registerPayment({
                 value: numericValue,
                 payment_method: paymentMethod,
                 statusPayment: '1',
                 payment_date: date
             });
-
+    
             if (response.success && response.data.status === "1") {
                 toast.success('Pagamento registrado com sucesso');
-                const statusUpdateResponse = await updateSubscriptionStatus(subscriberId, '1');
-                if (statusUpdateResponse.success) {
-                    toast.success('Inscrição atualizada com sucesso');
-                }
-                role === 'admin' ? navigate('/tela_admin') : navigate(`/`);
+                setTimeout(async () => {
+                    if (role === 'cliente') {
+                        const subscriberId = JSON.parse(localStorage.getItem('subscriberId'));
+                        const statusUpdateResponse = await updateSubscriptionStatus(subscriberId, '1');
+                        navigate('/');
+                        if (statusUpdateResponse.success) {
+                            toast.success('Inscrição atualizada com sucesso');
+                        }
+                    } else if (role === 'admin') {
+                        navigate('/tela_admin');
+                    } else if (role === 'org') {
+                        navigate('/tela_organizador');
+                    } else {
+                        navigate(`/`);
+                    }
+                }, 2000);
             } else {
                 toast.error('Registro de pagamento falhou.');
             }
         } catch (error) {
             console.error("Erro no registro:", error.message);
-            toast.error("Falha ao registrar o pagamento. Por favor, tente novamente.");
         }
     };
+    
 
     return (
         <>
@@ -80,17 +89,33 @@ function CriarPagamento() {
                 <div className={styles.login}>
                     <form onSubmit={handleRegister}>
                         <h3 className={styles.titulo_login}>Realizar pagamento</h3>
+                        {role === 'cliente' && (
+                            <div className={styles.text_label}>
+                                <input
+                                    type='text'
+                                    value={value}
+                                    id="value"
+                                    name='value'
+                                    placeholder='Digite o valor'
+                                    required
+                                    readOnly
+                                />
+                            </div>
+                        )}
+                    {(role === 'admin' || role === 'org') &&(
                         <div className={styles.text_label}>
-                            <input
-                                type='text'
-                                value={value}
-                                id="value"
-                                name='value'
-                                placeholder='Digite o valor'
-                                required
-                                readOnly
-                            />
+                        <input
+                            type='text'
+                            value={value}
+                            id="value"
+                            name='value'
+                            placeholder='Digite o valor'
+                            required
+                            onChange={e => setValue(e.target.value)}
+                        />
                         </div>
+                    )}
+                       
                         <div className={styles.text_label}>
                             <select
                                 className={styles.select_input}

@@ -45,7 +45,7 @@ function CriarConta() {
                     }
                     
                     else{
-                        navigate(`/evento/inscricoes/${id}/pagamentos`);
+                        navigate(`/login`);
                     }
                 }, 2100); 
             } else {

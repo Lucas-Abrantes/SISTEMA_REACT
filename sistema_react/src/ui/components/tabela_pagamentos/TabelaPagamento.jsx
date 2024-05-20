@@ -33,7 +33,15 @@ function TabelaPagamento() {
   };
 
   function formatStatus(value) {
-    return value ? "pago" : "em aberto";
+    if(value === 1){
+      return 'pago';
+    }
+    else if (value === 0){
+      return 'Em aberto';
+    }
+    else{
+      console.log("erro no valor");
+    }
 }
 
   const paymentColumns = [

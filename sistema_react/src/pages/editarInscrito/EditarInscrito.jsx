@@ -143,16 +143,18 @@ function EditarInscrito() {
                                     />
                                 </div>
                                 <div className={styles.text_label}>
-                                    <input 
-                                        type='text' 
-                                        id="status" 
-                                        name='status' 
-                                        placeholder='Status' 
-                                        required 
-                                        value={status} 
+                                    <select
+                                        className={styles.select_input}
+                                        id="status"
+                                        name="status"
+                                        value={status}
                                         onChange={e => setStatus(e.target.value)}
                                         disabled={loading}
-                                    />
+                                    >
+                                        <option value="">Selecione o status</option>
+                                        <option value="1">Inscrito</option>
+                                        <option value="0">Em Aberto</option>
+                                    </select>
                                 </div>
                                 <button className={styles.btn} type='submit' disabled={loading}>
                                     {loading ? <ClipLoader size={20} color={"#ffffff"} /> : 'Atualizar'}

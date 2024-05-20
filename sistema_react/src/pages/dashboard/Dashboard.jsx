@@ -25,7 +25,7 @@ function Dashboard() {
 
     const user = JSON.parse(localStorage.getItem('user'));
     const role = user && user.role;
-    console.log(role);
+   
 
     const handleEvents= ()=>{
         navigate('/evento');

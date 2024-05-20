@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from '../../styles/NavBar.module.css';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate, } from 'react-router-dom'; 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NavBar() {
     const navigate = useNavigate();
+    const [logoutToastShown, setLogoutToastShown] = useState(false);
+    const [logoutInitiated, setLogoutInitiated] = useState(false);
     const user = JSON.parse(localStorage.getItem('user'));
     const role = user && user.role;
 
@@ -19,10 +23,7 @@ function NavBar() {
         navigate('/');
     };
 
-    const handleLogout = ()=>{
-        localStorage.clear();
-        navigate('/');
-    }
+  
 
     const handleAccountClick = () => {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -38,8 +39,32 @@ function NavBar() {
         }
     };
 
+    const handleLogout = () => {
+        if (!logoutInitiated) {
+            setLogoutInitiated(true);
+            setTimeout(() => {
+                setLogoutInitiated(false);
+            }, 1000);
+
+            if (!logoutToastShown) {
+                toast.success("Logout bem sucedido!", {
+                    onClose: () => {
+                        localStorage.clear();
+                        navigate('/', { replace: true });
+                    }
+                });
+                setLogoutToastShown(true);
+                setTimeout(() => {
+                    setLogoutToastShown(false);
+                }, 1000);
+            }
+        }
+    };
+    
+
     return (
-        <header className={styles.menuNav}>
+        <>
+         <header className={styles.menuNav}>
             <div className={styles.container_logo}>
                 <h3 onClick={handleDashboard} className={styles.logo}>Group Events</h3>
             </div>
@@ -52,6 +77,8 @@ function NavBar() {
                 </ul>
             </nav>
         </header>
+        <ToastContainer />
+        </>
     );
 }
 

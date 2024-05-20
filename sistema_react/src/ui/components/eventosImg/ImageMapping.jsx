@@ -6,6 +6,8 @@ const imageMapping = {
     5: require('../../../assets/img/rock.jpg'),
     6: require('../../../assets/img/lifehouse.png'),
     7: require('../../../assets/img/lifehouse.png'),
+    8: require('../../../assets/img/lifehouse.png'),
+
   };
   
  export default imageMapping;  

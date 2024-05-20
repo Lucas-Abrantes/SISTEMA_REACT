@@ -73,7 +73,7 @@ function PainelAdmin() {
             </div>
             {!activeTable && user && (
                 <div className={styles.welcome}>
-                    <h1 className={styles.nome}>Bem-vindo,  {user.name}!</h1>
+                    <h1 className={styles.nome}>Bem-vindo(a),  {user.name}!</h1>
                 </div>
             )}
             {TableComponent && <TableComponent />}

@@ -27,11 +27,15 @@ function TabelaEventos() {
         }
     };
 
+   
     function formatStatus(value) {
-        if(value === '1'){
+        if (value === 1) {
             return 'admin';
+        } else if (value === 3) {
+            return 'organizador';
+        } else {
+            return 'unknown';
         }
-        return 'organizador';
     }
     
     const eventColumns = [

@@ -12,6 +12,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
+    
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -24,7 +25,6 @@ function Login() {
 
             if (response.success && response.data.role) {
                 console.log("User role:", response.data.role);
-
                 localStorage.setItem('user', JSON.stringify(response.data));
                 localStorage.setItem('isLoggedIn', 'true');
 

@@ -96,11 +96,28 @@ function CriarInscrito() {
                                 className={styles.input}
                             />
                         </div>
-                        <div className={styles.text_label}>
+                        {role === 'cliente' && (<div className={styles.text_label}>
                             <input type='text' value={eventTitle} className={styles.input} readOnly />
-                        </div>
+                        </div>)}
+                        
 
-                        <input type="hidden" name="event_id" value={eventId} />
+                        {(role === 'admin'|| role === 'org') && (
+                            <div className={styles.text_label}>
+                                <input
+                                    type='text'
+                                    id="event_id"
+                                    name="event_id"
+                                    placeholder='ID do Evento'
+                                    required
+                                    value={eventId}
+                                    onChange={e => setEventId(e.target.value)}
+                                    className={styles.input}
+                                />
+                            </div>
+                        )}
+                       <input type="hidden" name="event_id" value={eventId} />
+
+
                         <div className={styles.text_label}>
                             <input type="text" placeholder='Formato: yyyy-mm-dd' id="subscribeDate" required
                                 onChange={(e) => setSubscribeDate(e.target.value)}
