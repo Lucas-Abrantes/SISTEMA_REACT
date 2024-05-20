@@ -3,7 +3,6 @@ import { fetchAllPayments, deletePayment } from '../../../utils/rotaPagamento/Ro
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
 import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
 
-
 function TabelaPagamento() {
   const [payments, setPayments] = useState([]);
 
@@ -30,12 +29,11 @@ function TabelaPagamento() {
       setPayments(updatedPayments);
     } catch (error) {
       console.log(error);
-
     }
   };
 
   function formatStatus(value) {
-    return value ? "ativo" : "inativo";
+    return value ? "pago" : "em aberto";
 }
 
   const paymentColumns = [
@@ -46,7 +44,6 @@ function TabelaPagamento() {
   ];
 
   return (
-   
     <>
     {role === 'admin' || role === 'org'? (
       <TabelaGenerica

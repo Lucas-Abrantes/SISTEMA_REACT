@@ -32,7 +32,6 @@ function EditarPagamento() {
                 setLoading(false);
             }
         };
-
         fetchPayment();
     }, [id]);
 
@@ -50,7 +49,6 @@ function EditarPagamento() {
                 statusPayment: '1',
                 payment_date: date 
             });
-
             if (response.success) {
                 toast.success('Pagamento atualizada com sucesso',{
                     position: "top-center",
@@ -61,7 +59,6 @@ function EditarPagamento() {
                     draggable: true,
                     progress: undefined,
                 });
-
                 setTimeout(() => {
                     if (role === 'admin') {
                         navigate('/tela_admin');
@@ -146,7 +143,6 @@ function EditarPagamento() {
                                         onChange={e => setStatus(e.target.value)}
                                         disabled={loading}
                                     >
-                                        
                                     <option value="">Selecione o status</option>
                                     <option value="1">Ativo</option>
                                     <option value="0">Inativo</option> 

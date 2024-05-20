@@ -64,7 +64,6 @@ export const updateUser = async ({ id, name, email, type_user_id }) => {
             email,
             type_user_id
         });
-
         if (response.status === 200) {
             console.log('User updated successfully:', response.data);
             return { success: true, data: response.data };

@@ -56,8 +56,6 @@ function CriarInscrito() {
                     draggable: true,
                     progress: undefined,
                 });
-
-                // Adiciona um atraso antes de navegar para permitir que o toast seja exibido
                 setTimeout(() => {
                     console.log("Acessado por:", role);
                     if(role === 'admin'){
@@ -69,7 +67,7 @@ function CriarInscrito() {
                     else{
                         navigate(`/evento/inscricoes/${id}/pagamentos`);
                     }
-                }, 2100); // atraso ligeiramente maior que o autoClose do toast
+                }, 2100);
             } else {
                 throw new Error("Registration failed");
             }
@@ -92,7 +90,6 @@ function CriarInscrito() {
                                 className={styles.input}
                             />
                         </div>
-
                         <div className={styles.text_label}>
                             <input type='text' id="telefone" placeholder='Digite o numero do celular' required
                                value={telefone} onChange={e => setTelefone(e.target.value)}
@@ -110,7 +107,6 @@ function CriarInscrito() {
                                 className={styles.input}
                             />
                         </div>
-
                         <button className={styles.btn} type='submit'>Enviar</button>
                     </form>
                 </div>

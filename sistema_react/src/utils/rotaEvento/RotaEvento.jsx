@@ -14,7 +14,7 @@ export const registerEvent = async ({ title, description, data, location, organi
         if (response.status === 201) {
             return { success: true, data: response.data };
         } else {
-            return { success: false, message: "Falha ao registrar pagamento." };
+            return { success: false, message: "Falha ao registrar evento." };
         }
     } catch (error) {
         console.error("API call failed:", error.response ? error.response.data : "No response data");
@@ -23,8 +23,6 @@ export const registerEvent = async ({ title, description, data, location, organi
 };
 
 
-
-// rotas de eventos
 export const fetchAllEvents = async () => {
     try {
         const response = await API.get('/events/index');
@@ -32,7 +30,7 @@ export const fetchAllEvents = async () => {
         return response.data
     } catch (error) {
         console.log("API call to fetch all users failed:", error.response ? error.response.data : "No response data");
-        throw new Error('Falha ao obter usuários. Tente novamente.', { cause: error });
+        throw new Error('Falha ao obter evento. Tente novamente.', { cause: error });
     }
 }
 
@@ -45,8 +43,8 @@ export const deleteEvent = async (id) => {
             return response.data;
         }
     } catch (error) {
-        console.error("Erro ao deletar usuário:", error.response ? error.response.data : "No response data");
-        throw new Error('Falha ao deletar usuário. Tente novamente.', { cause: error });
+        console.error("Erro ao deletar evento:", error.response ? error.response.data : "No response data");
+        throw new Error('Falha ao deletar evento. Tente novamente.', { cause: error });
     }
 };
 
@@ -57,7 +55,7 @@ export const fecthIdEvent = async (id) => {
         console.log(response.data)
         return response.data;
     } catch (error) {
-        throw new Error('Falha ao obter usuários. Tente novamente.', { cause: error });
+        throw new Error('Falha ao obter evento. Tente novamente.', { cause: error });
     }
 }
 
@@ -73,7 +71,6 @@ export const updateEvent = async ({ id, title, description, data, location, orga
             capacity,
             price
         });
-
         if (response.status === 200) {
             console.log('Event updated successfully:', response.data);
             return { success: true, data: response.data };

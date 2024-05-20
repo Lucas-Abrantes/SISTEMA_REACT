@@ -36,7 +36,6 @@ function CriarConta() {
                     draggable: true,
                     progress: undefined,
                 });
-                 // Adiciona um atraso antes de navegar para permitir que o toast seja exibido
                  setTimeout(() => {
                     console.log("Acessado por:", role);
                     if(role === 'admin'){
@@ -48,7 +47,7 @@ function CriarConta() {
                     else{
                         navigate(`/evento/inscricoes/${id}/pagamentos`);
                     }
-                }, 2100); // atraso ligeiramente maior que o autoClose do toast
+                }, 2100); 
             } else {
                 throw new Error("Registration failed");
             }

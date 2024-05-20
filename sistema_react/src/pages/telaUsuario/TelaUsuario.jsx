@@ -25,7 +25,6 @@ function TelaUsuario() {
         }
     }, [user]);
 
-
     return (
         <>
             <NavBar />

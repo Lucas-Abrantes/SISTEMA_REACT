@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../styles/Painel.module.css';
 import TabelaUsuario from '../tabela_usuario/TabelaUsuario';
 import TabelaEvento from '../tabela_eventos/TabelaEvento';
@@ -32,12 +34,15 @@ function PainelAdmin() {
 
     const changeTable = (table) => {
         setActiveTable(table);
-        setMenuOpen(false);  // Fecha o menu após selecionar uma tabela
+        setMenuOpen(false);  
     };
 
     const handleLogout = () => {
-        localStorage.clear();
-        navigate('/login', { replace: true });
+        toast.success("Logout bem sucedido!");
+        setTimeout(() => {
+            localStorage.clear();
+            navigate('/login', { replace: true });
+        }, 3000);
     };
 
     const TableComponent = tableComponents[activeTable];
@@ -72,7 +77,10 @@ function PainelAdmin() {
                 </div>
             )}
             {TableComponent && <TableComponent />}
+            <ToastContainer />
+
         </div>
+        
     );
 }
 

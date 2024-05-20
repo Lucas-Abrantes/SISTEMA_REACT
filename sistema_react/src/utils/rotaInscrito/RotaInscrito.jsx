@@ -25,7 +25,7 @@ export const registerSubscriber = async ({ name, telefone, event_id, subscribe_d
         if (response.status === 201) {
             return { success: true, data: response.data };
         } else {
-            return { success: false, message: "Falha ao registrar pagamento." };
+            return { success: false, message: "Falha ao registrar inscrito." };
         }
     } catch (error) {
         console.error("API call failed:", error.response ? error.response.data : "No response data");
@@ -40,7 +40,7 @@ export const fetchAllSubscribers = async () => {
         console.log(response.data);
         return response.data
     } catch (error) {
-        console.log("API call to fetch all users failed:", error.response ? error.response.data : "No response data");
+        console.log("API call to fetch all subscribers failed:", error.response ? error.response.data : "No response data");
         throw new Error('Falha ao obter inscrito. Tente novamente.', { cause: error });
     }
 }
@@ -54,8 +54,8 @@ export const deleteSubscriber = async (id) => {
             return response.data;
         }
     } catch (error) {
-        console.error("Erro ao deletar usuário:", error.response ? error.response.data : "No response data");
-        throw new Error('Falha ao deletar usuário. Tente novamente.', { cause: error });
+        console.error("Erro ao deletar inscrito:", error.response ? error.response.data : "No response data");
+        throw new Error('Falha ao deletar inscrito. Tente novamente.', { cause: error });
     }
 };
 
@@ -77,8 +77,8 @@ export const updateSubscribe = async ({ id, name,telefone, event_id, subscribe_d
             return { success: false, message: "Failed to update payment." };
         }
     } catch (error) {
-        console.error("API call to subscribe user failed:", error.response ? error.response.data : "No response data");
-        throw new Error('Failed to subscribe user. Please try again.', { cause: error });
+        console.error("API call to subscribe failed:", error.response ? error.response.data : "No response data");
+        throw new Error('Failed to subscribe. Please try again.', { cause: error });
     }
 };
 

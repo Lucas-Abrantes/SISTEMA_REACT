@@ -1,5 +1,5 @@
 .content {
-  background-color: rgba(0, 0, 0, 0.242);
+  background-color: rgba(0, 0, 0, 0.135);
   flex-grow: 1;  
 }
 
@@ -29,14 +29,14 @@ justify-content: center;
 }
 
 .pesquisa_user > input{
-width: 60%;
-border: none;
-outline: none;
-border-radius: 2rem;
-line-height: 3rem;
-padding-left: 12px;
-font-size: 17px;
-color:  #12455f;
+  width: 60%;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  line-height: 3rem;
+  padding-left: 12px;
+  font-size: 17px;
+  color:  #12455f;
 }
 
 
@@ -75,7 +75,7 @@ color:  #12455f;
     overflow-y: auto;
     overflow-x: auto;
     margin: 0 auto;
-  }
+}
 
 table {
   width: 100%;
@@ -110,16 +110,16 @@ th {
     height: 40px;
     background-color: rgb(31, 60, 115);
     border-radius: 10px;
-  }
+}
 
-  .acao > a{
+.acao > a{
     font-size: 16px;
     color: rgb(237, 230, 230);
     margin: 4px;
     font-weight: 600;
-  }
+}
 
-  .botao{
+.botao{
     width: 40%;
     padding: 16px 0px;
     border: none;
@@ -134,9 +134,9 @@ th {
     background: green;
     transition: 0.2s;
     box-shadow: 0px 10px 40px -12px #051f4852;
-  }
+}
   
-  .bnt_table{
+.bnt_table{
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -145,12 +145,12 @@ th {
     letter-spacing: 1px;
     color: rgb(179, 183, 193);
     box-shadow: 0px 10px 40px -12px #051f4852;
-  }
+}
 
-  .bnt_table:hover{
+.bnt_table:hover{
     background-color: rgb(15, 84, 162);
     color: rgb(239, 241, 245);
-  }
+}
 
 .btnEditar{
     cursor: pointer;
@@ -165,7 +165,7 @@ th {
     line-height: 1.5rem;
     color: white;
     box-shadow: 0px 10px 40px -12px #051f4852;
-  }
+}
 
 .btnExcluir{
     cursor: pointer;
@@ -180,17 +180,17 @@ th {
     letter-spacing: 1px;
     color: white;
     box-shadow: 0px 10px 40px -12px #051f4852;
-  }
+}
 
-  .btnExcluir:hover{
+.btnExcluir:hover{
     background: rgb(243, 101, 101);
     color: rgb(239, 241, 245);
-  }
+}
 
-  .btnEditar:hover, .pages:hover{
+.btnEditar:hover, .pages:hover{
     background: rgb(66, 89, 158);
     color: rgb(239, 241, 245);
-  }
+}
 
 .pagination{
   display: flex;
@@ -213,12 +213,10 @@ th {
     line-height: 1.5rem;
     color: white;
     box-shadow: 0px 10px 40px -12px #051f4852;
-
 }
 
 .pages:hover{
   color: white;
-
 }
 
 .controls {
@@ -255,7 +253,6 @@ th {
 
 
 @media screen and (max-width:450px) {
-  
   .controls{
     margin-left: 1rem;
 
@@ -263,13 +260,13 @@ th {
   .tabela{
     margin-left: 0;
   }
-  
 }
 
 @media screen and (max-width:415px) {
   .content{
     padding: 0;
   }
+  
   .controls{
     margin-left: 1rem;
   }

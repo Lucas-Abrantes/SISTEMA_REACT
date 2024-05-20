@@ -61,7 +61,6 @@ function CriarEvento() {
                     }else if(role ==='org'){
                         navigate('/tela_organizador');
                     }
-                    
                     else{
                         navigate(`/evento/inscricoes/${id}/pagamentos`);
                     }

@@ -34,7 +34,6 @@ function EditarInscrito() {
                 setLoading(false);
             }
         };
-
         fetchSub();
     }, [id]);
 
@@ -53,7 +52,6 @@ function EditarInscrito() {
                 subscribe_date: subscribeDate,
                 status,
             });
-
             if (response.success) {
                 toast.success('Inscrição atualizada com sucesso',{
                     position: "top-center",
@@ -108,7 +106,6 @@ function EditarInscrito() {
                                         disabled={loading}
                                     />
                                 </div>
-
                                 <div className={styles.text_label}>
                                     <input 
                                         type='text' 

@@ -3,6 +3,7 @@ import { fetchAllSubscribers, deleteSubscriber } from '../../../utils/rotaInscri
 import TabelaGenerica from '../tabela_generica/TabelaGenerica';
 import TabelaGenericaUser from '../tabelaGenericaUser/TabelaGenericaUser';
 import 'react-toastify/dist/ReactToastify.css';
+
 function TabelaInscritos() {
     const [subscribers, setSubscribers] = useState([]);
     useEffect(() => {
@@ -24,10 +25,8 @@ function TabelaInscritos() {
             setSubscribers(updatedSubscribers);
         } catch (error) {
             console.log(error);
-
         }
     };
-
 
     function formatStatus(value) {
         return value ? "Inscrito" : "Nao inscrito";
@@ -71,9 +70,7 @@ function TabelaInscritos() {
             searchField='name'
           />
         )}
-        
         </>
-    
     );
 }
 

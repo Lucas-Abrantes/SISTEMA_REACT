@@ -43,7 +43,6 @@ function TabelaGenerica({ data, columns, onDelete, onEdit, routeCurrent, editRou
             navigate(`/tela_admin/${routeCurrent}/${createRoute}`);
         } else {
             navigate(`/tela_organizador/${routeCurrent}/${createRoute}`);
-
         }
     };
 

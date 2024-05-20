@@ -77,12 +77,12 @@
   gap: 5rem;
   justify-content: center;
   align-items: start;
-  background: rgba(0, 0, 0, 0.37);
+  background: rgba(0, 0, 0, 0.135);
 
 }
 
 .nome{
-  color: #e6f0f5;
+  color: #12455f;
   margin-top: 4rem;
   font-size: 38px;
 }
@@ -104,7 +104,6 @@
   display: flex;
   align-items: center;
 }
-
 
 /* Estilos para o menu responsivo */
 .hamburger {
@@ -161,6 +160,7 @@
     flex-direction: column;
   }
 }
+
 
 @media screen and (max-width: 821px) {
 

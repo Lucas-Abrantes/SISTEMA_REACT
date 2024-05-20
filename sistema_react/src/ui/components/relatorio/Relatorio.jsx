@@ -5,7 +5,6 @@ import { Pie } from 'react-chartjs-2';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 import styles from '../../styles/Relatorio.module.css';
 
-// Register the required elements with Chart.js
 Chart.register(ArcElement, Tooltip, Legend);
 
 const Relatorio = () => {
@@ -19,17 +18,28 @@ const Relatorio = () => {
             try {
                 const inscritosData = await fetchAllSubscribers();
                 setInscritos(inscritosData);
+                const agrupadosPorEvento = inscritosData.reduce((acc, inscrito) => {
+                    if (!acc[inscrito.event_id]) {
+                        acc[inscrito.event_id] = [];
+                    }
+                    acc[inscrito.event_id].push(inscrito);
+                    return acc;
+                }, {});
 
                 const eventosData = await Promise.all(
-                    inscritosData.map(async (inscrito) => {
-                        const evento = await fecthIdEvent(inscrito.event_id);
-                        return { ...evento, inscritos: inscritosData.filter(sub => sub.event_id === evento.id).length };
+                    Object.keys(agrupadosPorEvento).map(async (eventId) => {
+                        const evento = await fecthIdEvent(eventId);
+                        const inscritosCount = agrupadosPorEvento[eventId].length;
+                        return {
+                            ...evento,
+                            inscritos: inscritosCount,
+                            arrecadado: evento.price * inscritosCount
+                        };
                     })
                 );
 
                 setEventos(eventosData);
-
-                const total = eventosData.reduce((total, evento) => total + evento.price * evento.inscritos, 0);
+                const total = eventosData.reduce((total, evento) => total + evento.arrecadado, 0);
                 setTotalArrecadado(total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
 
                 const dados = {
@@ -37,8 +47,8 @@ const Relatorio = () => {
                     datasets: [
                         {
                             label: 'Valor Arrecadado por Evento',
-                            data: eventosData.map(evento => evento.price * evento.inscritos),
-                            backgroundColor: ['#79525a', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'] // Cores para cada setor
+                            data: eventosData.map(evento => evento.arrecadado),
+                            backgroundColor: ['#d95872', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'] // Cores para cada setor
                         }
                     ]
                 };
@@ -50,7 +60,7 @@ const Relatorio = () => {
 
         fetchDados();
     }, []);
-
+    
     return (
         <div className={styles.container_grafico}>
             {dadosGrafico && (
@@ -60,7 +70,7 @@ const Relatorio = () => {
                 </div>
             )}
             <div className={styles.total}>
-                <h4>Total Geral: R$ {totalArrecadado}</h4>
+                <h4>Total Geral: {totalArrecadado}</h4>
             </div>
         </div>
     );

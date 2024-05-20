@@ -34,7 +34,6 @@ function TabelaEventos() {
         return 'organizador';
     }
     
-
     const eventColumns = [
         { key: 'id', title: 'ID' },
         { key: 'title', title: 'Title' },
@@ -48,8 +47,6 @@ function TabelaEventos() {
             return isNaN(numberValue) ? 'Valor inválido' : `R$ ${numberValue.toFixed(2)}`;
         }}
     ];
-
-    
 
     return (
         <>
@@ -65,7 +62,6 @@ function TabelaEventos() {
         />
         }
         </>
-     
     );
 }
 

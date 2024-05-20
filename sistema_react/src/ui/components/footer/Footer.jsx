@@ -4,7 +4,6 @@ import FacebookImg from '../../../assets/img/facebook.svg';
 import LinkedinImg from '../../../assets/img/linkedin.svg';
 import InstagramImg from '../../../assets/img/insta.svg';
 
-
 function Footer(){
     return(
         <>
@@ -18,7 +17,6 @@ function Footer(){
                     <li><a href='#id'>Termos de uso</a></li>
                 </ul>
             </div>
-
             <div className={styles.empresa}>
                 <h4>Atendimento</h4>
                 <ul className={styles.itens_empresa}>
@@ -44,7 +42,6 @@ function Footer(){
                     </li>
                 </ul>
             </div>
-            
             <div className={styles.aplicativos}>
                 <h4>Baixe nosso app</h4>
                 <div className={styles.apps}>
@@ -53,15 +50,14 @@ function Footer(){
                 </div>
             </div>
         </div>
-        
         <div className={styles.adicionais}>
             <div className={styles.info}>
                 <div className={styles.footer_group}>
                     <p className={styles.dados}>Copyright © 2024 Group Events - CNPJ: 20.150.999/0001-35</p>
                     <div className={styles.footer_midias}>
-                        <a className={styles.redes} href='#'><img src={FacebookImg} alt='facebook'/></a>
-                        <a className={styles.redes} href='#'><img src={InstagramImg} alt='instagram'/></a>
-                        <a className={styles.redes} href='#'><img  src={LinkedinImg} alt='linkedin'/></a>
+                        <a className={styles.redes} href='#id'><img src={FacebookImg} alt='facebook'/></a>
+                        <a className={styles.redes} href='#id'><img src={InstagramImg} alt='instagram'/></a>
+                        <a className={styles.redes} href='#id'><img  src={LinkedinImg} alt='linkedin'/></a>
                     </div>
                 </div>
             </div>

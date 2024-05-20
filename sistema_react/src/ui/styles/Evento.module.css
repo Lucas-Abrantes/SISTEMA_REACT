@@ -1,7 +1,6 @@
 .container{
     height: auto;
     padding: 1rem;
-
 }
 
 .principal{
@@ -22,6 +21,7 @@
 .titulo > h2{
     color: #12455f;
     font-weight: 800;
+    margin:1rem 0 2rem;
 }
 
 .show{
@@ -38,8 +38,6 @@
     height: auto;
 }
 
-
-
 .evento_1 {
     display: flex;
     justify-content: center;
@@ -54,15 +52,12 @@
     transition: 0.1s;
 }
 
-
 .imagens{
     width: 95%;
     padding: 0.4rem;
     object-fit: cover;
     height: 200px;
 }
-
-
 
 .subscriber{
     border: 1px solid transparent;
@@ -80,6 +75,67 @@
     background-color: #ffa41b;
     color: black;
 }
+
+
+.labelSelect {
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+  }
+
+  .selectInput {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color:  rgba(0, 0, 0, 0);
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+.selectInput:focus {
+    outline: none;
+    border-color: #666;
+  }
+
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    margin: 2rem 0 2rem;
+  }  
+  
+
+.paginationControls{
+    margin: 2rem 0 2rem;
+}  
+
+.pages{
+    cursor: pointer;
+    font-size: 15px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 9px;
+    background: rgb(57, 91, 195);
+    transition: 0.2s;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+    margin: 1rem 0 2rem;
+    color: white;
+    box-shadow: 0px 10px 40px -12px #051f4852;
+  }
+  
+.pages:hover{
+    color: white;
+  }
+
+
 
 @media screen and (max-width:915px) {
     .atracoes{

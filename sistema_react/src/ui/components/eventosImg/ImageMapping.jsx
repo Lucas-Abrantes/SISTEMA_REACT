@@ -1,4 +1,3 @@
-// Em um arquivo separado, como imageMapping.js
 const imageMapping = {
     1: require('../../../assets/img/classico.jpeg'),
     2: require('../../../assets/img/lifehouse.png'),
@@ -7,8 +6,6 @@ const imageMapping = {
     5: require('../../../assets/img/rock.jpg'),
     6: require('../../../assets/img/lifehouse.png'),
     7: require('../../../assets/img/lifehouse.png'),
-
   };
   
-  export default imageMapping;
-  
+ export default imageMapping;  

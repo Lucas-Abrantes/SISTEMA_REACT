@@ -64,7 +64,6 @@ function CriarPagamento() {
                     toast.success('Inscrição atualizada com sucesso');
                 }
                 role === 'admin' ? navigate('/tela_admin') : navigate(`/`);
-
             } else {
                 toast.error('Registro de pagamento falhou.');
             }

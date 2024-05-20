@@ -7,7 +7,7 @@ export const fetchAllPayments = async () => {
         return response.data
     } catch (error) {
         console.log("API call to fetch all users failed:", error.response ? error.response.data : "No response data");
-        throw new Error('Falha ao obter usuários. Tente novamente.', { cause: error });
+        throw new Error('Falha ao obter pagamento. Tente novamente.', { cause: error });
     }
 }
 
@@ -40,8 +40,8 @@ export const deletePayment = async (id) => {
             return response.data;
         }
     } catch (error) {
-        console.error("Erro ao deletar usuário:", error.response ? error.response.data : "No response data");
-        throw new Error('Falha ao deletar usuário. Tente novamente.', { cause: error });
+        console.error("Erro ao deletar pagamento:", error.response ? error.response.data : "No response data");
+        throw new Error('Falha ao deletar pagamento. Tente novamente.', { cause: error });
     }
 };
 
@@ -52,7 +52,7 @@ export const fecthIdPayment = async (id) => {
         console.log(response.data)
         return response.data;
     } catch (error) {
-        throw new Error('Falha ao obter usuários. Tente novamente.', { cause: error });
+        throw new Error('Falha ao obter pagamento. Tente novamente.', { cause: error });
     }
 }
 
@@ -64,7 +64,6 @@ export const updatePayment = async ({ id, value, payment_method, statusPayment =
             status: statusPayment,
             payment_date
         });
-
         if (response.status === 200) {
             console.log('Payment updated successfully:', response.data);
             return { success: true, data: response.data };

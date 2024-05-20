@@ -117,7 +117,6 @@ function EditarUsuario() {
                                 <div className={styles.text_label}>
                                     <select
                                         className={styles.select_input}
-
                                         type='text' 
                                         id="type_user_id" 
                                         name='type_user_id' 

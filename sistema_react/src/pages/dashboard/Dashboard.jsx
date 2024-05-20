@@ -23,10 +23,13 @@ function Dashboard() {
         loadEventos();
     }, []);
 
-    // Obter o usuário e seu papel do localStorage
     const user = JSON.parse(localStorage.getItem('user'));
     const role = user && user.role;
     console.log(role);
+
+    const handleEvents= ()=>{
+        navigate('/evento');
+    }
 
     const handleSubscribers = async (eventId) => {
         if (role === 'admin' || role === 'org' || role === 'cliente') {
@@ -67,7 +70,6 @@ function Dashboard() {
                         <div className={styles.titulo}>
                             <h2 className={styles.titulo_eventos}>Nossos eventos</h2>
                         </div>
-
                         <div className={styles.atracoes}>
                             {eventos.slice(0, 3).map((evento) => (
                                 <div className={styles.evento_1} key={evento.id}>
@@ -81,6 +83,9 @@ function Dashboard() {
                                     </button>
                                 </div>
                             ))}
+                        </div>
+                        <div className={styles.add_events}>
+                            <button  onClick={handleEvents} className={styles.subscriber}>Mais eventos</button>
                         </div>
                     </article>
                 </div>

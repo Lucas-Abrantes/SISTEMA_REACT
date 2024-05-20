@@ -49,7 +49,6 @@ function NavBar() {
                     <li className={styles.item}><Link to="/criar_conta" onClick={handleCreateAccountClick}>Criar conta</Link></li>
                     <li className={styles.item}><Link to="#" onClick={handleAccountClick}>Conta</Link></li>
                     <li className={styles.item}><Link to="#" onClick={handleLogout}>Sair</Link></li>
-
                 </ul>
             </nav>
         </header>

@@ -11,9 +11,6 @@ function TabelaGenericaUser({ data, columns, routeCurrent, editRoute, createRout
         setFilteredData(data);
     }, [data]);
 
-    const user = JSON.parse(localStorage.getItem('user'));
-    const role = user && user.role;
-
     const handleSearchChange = (event) => {
         const { value } = event.target;
         setSearchTerm(value);
@@ -25,13 +22,12 @@ function TabelaGenericaUser({ data, columns, routeCurrent, editRoute, createRout
             setFilteredData(data);
         }
     };
- 
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
     const paginate = pageNumber => setCurrentPage(pageNumber);
-    
+
     const handleItemsPerPageChange = (event) => {
         setItemsPerPage(Number(event.target.value));
         setCurrentPage(1); 

@@ -6,6 +6,8 @@ import TabelaPagamento from '../tabela_pagamentos/TabelaPagamento';
 import Dinheiro from '../../../assets/img/dinheiro.png';
 import Cadastro from '../../../assets/img/cadastro.png';
 import Logout from '../../../assets/img/logout.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function PainelUser() {
@@ -14,7 +16,6 @@ function PainelUser() {
 
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
-
     const tableComponents = {
         payments: () => <TabelaPagamento tableType="payments" />,
         subscribers: () => <TabelaInscrito tableType="subscribers" />
@@ -28,13 +29,15 @@ function PainelUser() {
 
     const changeTable = (table) => {
         setActiveTable(table);
-        setMenuOpen(false);  // Fecha o menu após selecionar uma tabela
-
+        setMenuOpen(false);
     };
 
     const handleLogout = () => {
-        localStorage.clear();
-        navigate('/login', { replace: true });
+        toast.success("Logout bem sucedido!");
+        setTimeout(() => {
+            localStorage.clear();
+            navigate('/login', { replace: true });
+        }, 3000);
     };
 
     const TableComponent = tableComponents[activeTable];
@@ -58,11 +61,11 @@ function PainelUser() {
                     </div>
                 </div>
             </div>
-            
             {!activeTable && <div className={styles.welcome}>
                 <h1 className={styles.nome}>Bem-vindo,  {user.name}!</h1>
             </div>}
             {TableComponent && <TableComponent />}
+            <ToastContainer />
         </div>
     );
 }

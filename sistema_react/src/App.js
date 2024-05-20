@@ -22,7 +22,6 @@ const router = createBrowserRouter(
       <Route element={<RootLayout />}>  
          <Route index element={<Dashboard/>}></Route>
       </Route>  
-     
       <Route path="/tela_admin/*" element={<TelaAdmin/>}></Route>
       <Route path="/tela_admin/payments/editar_pagamento/:id" element={<EditarPagamento/>}></Route> 
       <Route path="/tela_admin/events/editar_evento/:id" element={<EditarEvento/>}></Route> 
@@ -32,14 +31,12 @@ const router = createBrowserRouter(
       <Route path="/tela_admin/users/criar_conta" element={<CriarConta/>}></Route> 
       <Route path="/tela_admin/events/criar_evento" element={<CriarEvento/>}></Route> 
       <Route path="/tela_admin/subscribers/criar_inscrito" element={<CriarInscrito/>}></Route> 
-
       <Route path="/tela_usuario/*" element={<TelaUsuario/>}></Route> 
-      
+
       <Route path="/evento/*" element={<Evento/>}></Route> 
       <Route path="/evento/inscricoes/:id" element={<CriarInscrito/>}></Route> 
       <Route path="/evento/inscricoes/:id/pagamentos" element={<CriarPagamento/>}></Route> 
       <Route path="/criar_conta" element={<CriarConta/>}></Route>
-      
        
       <Route path="/tela_organizador/*" element={<TelaOrganizador/>}></Route> 
       <Route path="/tela_organizador/payments/editar_pagamento/:id" element={<EditarPagamento/>}></Route> 
@@ -50,8 +47,6 @@ const router = createBrowserRouter(
       <Route path="/tela_organizador/users/criar_conta" element={<CriarConta/>}></Route> 
       <Route path="/tela_organizador/events/criar_evento" element={<CriarEvento/>}></Route> 
       <Route path="/tela_organizador/subscribers/criar_inscrito" element={<CriarInscrito/>}></Route> 
-
-
 
       <Route path="*" element={<NotPage/>}></Route> 
       <Route path="/login" element={<Login/>}></Route> 
